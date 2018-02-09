@@ -1,0 +1,29 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
+import static java.lang.System.*;
+import java.util.Scanner;
+
+public class Lab08g
+{
+	public static void main ( String[] args )
+	{
+		Scanner keyboard = new Scanner(System.in);
+		LoopStats lab = new LoopStats();
+		
+		int a = keyboard.nextInt();
+		int b = keyboard.nextInt();
+		
+		lab.setNums(a, b);
+		System.out.print(lab);
+		
+		
+		
+		
+		
+					
+	}
+}

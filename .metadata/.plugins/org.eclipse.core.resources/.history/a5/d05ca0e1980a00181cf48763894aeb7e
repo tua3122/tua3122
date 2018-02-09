@@ -1,0 +1,27 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+import java.util.Scanner;
+public class Lab02f
+{
+	public static void main( String[] args )
+   {
+		Scanner keyboard = new Scanner(System.in);
+		System.out.print("Input coordinates: (");
+		Double x1 = keyboard.nextDouble();
+		System.out.print(", ");
+		Double x2 = keyboard.nextDouble();
+		System.out.print("), ( ");
+		Double y1 = keyboard.nextDouble();
+		System.out.print(", ");
+		Double y2 = keyboard.nextDouble();
+		Line lab = new Line();
+		
+		
+		
+		
+		
+	}
+}

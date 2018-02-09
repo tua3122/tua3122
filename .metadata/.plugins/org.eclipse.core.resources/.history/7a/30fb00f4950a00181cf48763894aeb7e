@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class Circle
+{
+	private double radius;
+	private double area;
+
+	public void setRadius(double rad)
+	{
+		Scanner keyboard = new Scanner(System.in);
+		radius = System.in.nextInt();
+	}
+
+	public void calculateArea( )
+	{
+	}
+
+	public void print( )
+	{
+	}
+}
