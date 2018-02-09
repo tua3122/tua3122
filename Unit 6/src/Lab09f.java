@@ -10,9 +10,7 @@ public class Lab09f
 {
 	public static void main( String args[] )
 	{
-		//add test cases
-		
-		
-											
+		LetterRemover lab = new LetterRemover("abababababa ", 'b');
+		System.out.println(lab);							
 	}
 }
