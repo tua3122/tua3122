@@ -1,0 +1,32 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class - 
+//Lab  -
+
+import static java.lang.System.*;
+
+public class Lab11c
+{
+   public static void main( String args[] )
+   {
+	   TriangleThree lab = new TriangleThree();
+	   int size = 5;
+	   char letter = 'x';
+	   for(int i = size; i>=0; i--){
+			for(int x = i; x>=0;x--){
+				out.print(" ");
+			}
+			for(int x = i; x<=i; x++){
+				out.print(letter);
+			}
+			out.print("\n");
+		}
+
+
+
+
+
+
+	}
+}

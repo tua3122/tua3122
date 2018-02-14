@@ -23,17 +23,29 @@ public class Triples
 
 	public void setNum(int num)
 	{
-
-
+		number = num;
 	}
 	
 	private int greatestCommonFactor(int a, int b, int c)
 	{
 		int max = 0;
+		
+		//borrowed code
+		int r;
+	    while (b!=0) {
+	        r = a%b;
+	        a = b;
+	        b = r;
+	    }
+	    
+	    if(a!=1){
+	    	
+	    }
+	    return a;
 
 
 
-		return 1;
+		//return 1;
 	}
 
 	public String toString()
