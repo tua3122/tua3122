@@ -45,6 +45,18 @@ public class Magpie3
 		{
 			response = "Tell me more about your family.";
 		}
+		else if (statement.indexOf("dog") >= 0
+				|| statement.indexOf("cat") >= 0)
+		{
+			response = "Tell me more about your pets.";
+		}
+		else if (statement.indexOf("Mr. Mauro") >= 0)
+		{
+			response = "He's a great teacher.";
+		}
+		else if (statement.length()<1){
+			response = "Say something please.";
+		}
 		else
 		{
 			response = getRandomResponse();
@@ -165,7 +177,14 @@ public class Magpie3
 		{
 			response = "You don't say.";
 		}
-
+		else if (whichResponse == 4)
+		{
+			response = "Wow.";
+		}
+		else if (whichResponse == 5)
+		{
+			response = "Ah.";
+		}
 		return response;
 	}
 

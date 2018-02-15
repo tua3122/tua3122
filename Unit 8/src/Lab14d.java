@@ -8,7 +8,9 @@ public class Lab14d
 {
 	public static void main( String args[] )
 	{
-		//add test cases
+		Grades lab = new Grades();
+		lab.setGrades();
+		System.out.print(lab);
 		
 		
 		

@@ -1,0 +1,62 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
+import java.lang.System;
+import java.lang.Math;
+import java.util.Scanner;
+
+public class Grades
+{
+	int[] grades;
+	
+	
+
+	//constructor
+	public void Grades(){
+		
+	}
+
+
+
+	public void setGrades(){
+		Scanner keyboard = new Scanner(System.in);
+		int number = keyboard.nextInt();
+		for(int i = 0; i<number; i++){
+			grades[i] = keyboard.nextInt();
+		}
+		
+	}
+
+
+
+	private double getSum()
+	{
+		double sum=0.0;
+		
+		for(int i = 0; i<grades.length; i++){
+			sum = sum+grades[i];
+		}
+
+
+
+		return sum;
+	}
+
+	public double getAverage()
+	{
+		double average=0.0;
+
+
+
+		return average;
+	}
+
+
+	//toString method
+
+
+
+}
