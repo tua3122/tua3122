@@ -41,11 +41,6 @@ public class RomanNumeral
 	{
 		return number;
 	}
-	
-	public String getRoman(){
-		
-		return "";
-	}
 
 	public String toString()
 	{

@@ -59,7 +59,7 @@ public class Grades
 		String output = "";
 		
 		for(int i = 1; i <= number; i++){
-			output = output+"\ngrade " + i + " :: " + grades[i-1];
+			output = output+" grade " + i + " :: " + grades[i-1];
 		}
 		
 		return output + "\naverage = " + getAverage();

@@ -10,8 +10,8 @@ import java.util.Scanner;
 
 public class Grades
 {
+	double[] grades= new double[args.length];
 	int number;
-	double[] grades;
 	
 	
 
@@ -24,8 +24,7 @@ public class Grades
 	public void setGrades(){
 		Scanner keyboard = new Scanner(System.in);
 		number = keyboard.nextInt();
-		grades = new double[number];
-		for(int i = 0; i<=number-1; i++){
+		for(int i = 0; i<=number; i++){
 			grades[i] = keyboard.nextInt();
 		}
 		keyboard.close();
@@ -59,7 +58,7 @@ public class Grades
 		String output = "";
 		
 		for(int i = 1; i <= number; i++){
-			output = output+"\ngrade " + i + " :: " + grades[i-1];
+			output = output+" grade " + i + " :: " + grades[i-1];
 		}
 		
 		return output + "\naverage = " + getAverage();

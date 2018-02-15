@@ -43,7 +43,6 @@ public class RomanNumeral
 	}
 	
 	public String getRoman(){
-		
 		return "";
 	}
 

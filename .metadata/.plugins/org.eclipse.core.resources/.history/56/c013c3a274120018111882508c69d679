@@ -30,21 +30,23 @@ public class RomanNumeral
 	public void setNumber(Integer num)
 	{
 		number = num;
+
+
+
+
+
 	}
 
 	public void setRoman(String rom)
 	{
-		roman = rom;
+
+
+
 	}
 
 	public Integer getNumber()
 	{
 		return number;
-	}
-	
-	public String getRoman(){
-		
-		return "";
 	}
 
 	public String toString()
