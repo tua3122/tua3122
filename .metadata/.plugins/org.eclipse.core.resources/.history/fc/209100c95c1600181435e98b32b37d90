@@ -1,0 +1,84 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
+import static java.lang.System.*;
+
+public class RomanNumeral
+{
+	private Integer number;
+	private String roman;
+
+	private final static int[] NUMBERS= {1000,900,500,400,100,90,
+													50,40,10,9,5,4,1};
+
+	private final static String[] LETTERS = {"M","CM","D","CD","C","XC",
+												  "L","XL","X","IX","V","IV","I"};
+
+	public RomanNumeral(String str)
+	{
+		setRoman(str);
+		roman = getRoman();
+	}
+
+	public RomanNumeral(Integer orig)
+	{
+		setNumber(orig);
+		roman = getNumber();
+	}
+
+	public void setNumber(Integer num)
+	{
+		number = num;
+	}
+
+	public void setRoman(String rom)
+	{
+		roman = rom;
+	}
+
+	public Integer getNumber()
+	{
+		int n = 0;
+		int i = 0;
+		while (roman != ""){
+			if (roman.substring(0,1) == LETTERS[i]){
+				n = n + NUMBERS[i];
+				roman = roman.substring(1, roman.length()-1);
+				i=0;
+			}
+			if(roman.substring(0,2) == LETTERS[i]){
+				n = n + NUMBERS[i];
+				roman = roman.substring(2, roman.length()-1);
+				i=0;
+			}
+			else{
+				i++;
+			}
+		}
+		return n;
+	}
+	
+	public String getRoman(){
+		String r = "";
+		int i = 0;
+		while (number != 0){
+			if(NUMBERS[i]<=number){
+				r = r + LETTERS[i];
+				number = number - NUMBERS[i];
+				i=0;
+			}
+			else{
+				i++;
+			}
+		}
+		return r;
+	}
+
+	public String toString()
+	{
+		return roman + "\n";
+	}
+}
