@@ -8,5 +8,4 @@ INDEX VERSION 1.130+H:\tua3122\.metadata\.plugins\org.eclipse.jdt.core
 1272775154.index
 1571502954.index
 1020932452.index
-3692025978.index
 2782093534.index
