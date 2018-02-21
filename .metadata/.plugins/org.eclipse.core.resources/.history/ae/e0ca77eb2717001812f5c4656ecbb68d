@@ -1,0 +1,18 @@
+/**
+ * This is a class that tests the Deck class.
+ */
+public class DeckTester {
+
+	/**
+	 * The main method in this class checks the Deck operations for consistency.
+	 *	@param args is not used.
+	 */
+	public static void main(String[] args) {
+		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		String[] rank1 = {"Ace", "Queen", "Jack"};
+		String[] suit1 = {"Spades", "Hearts", "Diamonds"};
+		int[] value1 = {1,12,11};
+		
+		Deck d1 = new Deck(rank1, suit1, value1);
+	}
+}
