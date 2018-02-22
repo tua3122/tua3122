@@ -87,11 +87,6 @@ public class Shuffler {
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
 		int[] shuffled = new int[52];
-		int j = 0;
-		for(int k=0; k<=51;k++){
-			j= (int)(Math.random() * 52);
-			shuffled[k] = values[j];
-		}
-		values= null;
+		for(k=0; k<=51;k++)
 	}
 }

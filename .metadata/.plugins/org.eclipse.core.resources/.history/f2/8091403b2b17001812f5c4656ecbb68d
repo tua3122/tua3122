@@ -92,6 +92,6 @@ public class Shuffler {
 			j= (int)(Math.random() * 52);
 			shuffled[k] = values[j];
 		}
-		values= null;
+		values[j]= [null];
 	}
 }
