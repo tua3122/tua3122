@@ -3,8 +3,17 @@
  *
  * <code>Card</code> represents a playing card.
  */
-public class Card {
 
+/* String[] rank1 = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Queen", "Jack", "King"};
+ * String[] suit1 = {"Spades", "Hearts", "Diamonds", "Clubs"};
+ * String[] suitS = {"Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades", "Spades"};
+ * String[] suitH = {"Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts", "Hearts"};
+ * String[] suitD = {"Diamonds", "Diamonds", "Diamonds", "Diamonds", "Diamonds", "Diamonds", "Diamonds", "Diamonds", "Diamonds", "Diamonds", "Diamonds", "Diamonds", "Diamonds", };
+ * String[] suitC = {"Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", "Clubs", };
+ * int[] value1 = {1,2,3,4,5,6,7,8,9,10,11,12,13};
+ */
+public class Card {
+	
 	/**
 	 * String value that holds the suit of the card
 	 */

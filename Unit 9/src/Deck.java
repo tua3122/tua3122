@@ -1,6 +1,3 @@
-import java.util.List;
-import java.util.ArrayList;
-
 /**
  * The Deck class represents a shuffled deck of cards.
  * It provides several operations including
@@ -11,7 +8,7 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	private List<Card> cards;
+	private Card[] cards;
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -31,12 +28,12 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		this.cards = new ArrayList<Card>();
+		this.cards = new Card[52];
 		for(int i = 0; i<ranks.length; i++){
 			Card deck = new Card(ranks[i], suits[i], values[i]);
-            this.cards.add(deck);
+            this.cards[i] = deck;
+            this.size= i+1;
 		}
-		this.size= this.cards.size();
 	}
 
 
@@ -46,7 +43,7 @@ public class Deck {
 	 */
 	public boolean isEmpty() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		if (this.cards.size() == 0){
+		if (this.cards.length == 0){
 			return true;
 		}
 		return false;
@@ -57,7 +54,7 @@ public class Deck {
 	 * @return the number of undealt cards in this deck.
 	 */
 	public int size() {
-		return this.cards.size();
+		return this.size;
 	}
 
 	/**
@@ -77,7 +74,7 @@ public class Deck {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		this.size = this.size - 1;
         if (this.size > 0) {
-            return this.cards.get(this.size);
+            return this.cards[this.size];
         }
         return null;
 	}
@@ -88,32 +85,32 @@ public class Deck {
 	 */
 	@Override
 	public String toString() {
-		String rtn = "size = " + size + "\nUndealt cards: \n";
+		String output = "size = " + size + "\nUndealt cards: \n";
 
 		for (int k = size - 1; k >= 0; k--) {
-			rtn = rtn + cards.get(k);
+			output = output + cards[k];
 			if (k != 0) {
-				rtn = rtn + ", ";
+				output = output + ", ";
 			}
 			if ((size - k) % 2 == 0) {
 				// Insert carriage returns so entire deck is visible on console.
-				rtn = rtn + "\n";
+				output = output + "\n";
 			}
 		}
 
-		rtn = rtn + "\nDealt cards: \n";
-		for (int k = cards.size() - 1; k >= size; k--) {
-			rtn = rtn + cards.get(k);
+		output = output + "\nDealt cards: \n";
+		for (int k = cards.length - 1; k >= size; k--) {
+			output = output + cards[k];
 			if (k != size) {
-				rtn = rtn + ", ";
+				output = output + ", ";
 			}
-			if ((k - cards.size()) % 2 == 0) {
+			if ((k - cards.length) % 2 == 0) {
 				// Insert carriage returns so entire deck is visible on console.
-				rtn = rtn + "\n";
+				output = output + "\n";
 			}
 		}
 
-		rtn = rtn + "\n";
-		return rtn;
+		output = output + "\n";
+		return output;
 	}
 }
