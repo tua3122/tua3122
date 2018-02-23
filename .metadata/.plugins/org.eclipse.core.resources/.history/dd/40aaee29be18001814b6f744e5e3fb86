@@ -71,7 +71,6 @@ public class Shuffler {
 			shuffled[k] = values[j];
 			k+=2;
 		}
-		values = shuffled;
 	}
 
 	/**
