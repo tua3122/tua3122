@@ -26,7 +26,7 @@ public class Shuffler {
 			values1[i] = i;
 			}
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
-			perfectShuffle(values1);
+			eSelectionShuffle(values1);
 			System.out.print("  " + j + ":");
 			for (int k = 0; k < values1.length; k++) {
 				System.out.print(" " + values1[k]);
@@ -95,7 +95,7 @@ public class Shuffler {
 		}
 	}
 	
-	public static void eSelectionShuffle(int[] values){
+	public static void eSelectionShuffle(Card[] values){
 		Card[] shuffled = new Card[52];
 		int j = 0;
 		for(int k=51; k>=0; k--){

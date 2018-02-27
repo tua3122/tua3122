@@ -4,7 +4,7 @@
 //Class -
 //Lab  -
 
-import java.util.*;
+import java.util.Scanner;
 import static java.lang.System.*;
 
 public class GuessingGame
@@ -22,13 +22,11 @@ public class GuessingGame
 	public void playGame()
 	{
 		Scanner keyboard = new Scanner(System.in);
-		Random rand = new Random();
 		
 		out.print("Guessing game - how many numbers? ");
 		upperBound = keyboard.nextInt();
-		correct = rand.nextInt(upperBound);
-		//correct = (Math.random() * (upperBound-1)+1);
-		//correct = correct - correct%1;
+		correct = (Math.random() * (upperBound-1)+1);
+		correct = correct - correct%1;
 		while(guess != correct){
 			out.print("Enter a number between 1 and " + upperBound + " ");
 			guess = keyboard.nextInt();
@@ -43,7 +41,7 @@ public class GuessingGame
 		}
 		percent = (percent-1)/percent;
 		percent = percent *100;
-		
+		keyboard.close();
 	}
 
 	public String toString()

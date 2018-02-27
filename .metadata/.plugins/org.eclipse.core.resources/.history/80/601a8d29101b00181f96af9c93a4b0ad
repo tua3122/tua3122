@@ -43,7 +43,7 @@ public class GuessingGame
 		}
 		percent = (percent-1)/percent;
 		percent = percent *100;
-		
+		keyboard.close();
 	}
 
 	public String toString()

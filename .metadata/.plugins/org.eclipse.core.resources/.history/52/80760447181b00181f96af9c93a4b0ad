@@ -96,7 +96,7 @@ public class Shuffler {
 	}
 	
 	public static void eSelectionShuffle(int[] values){
-		Card[] shuffled = new Card[52];
+		int[] shuffled = new int[52];
 		int j = 0;
 		for(int k=51; k>=0; k--){
 			j= (int)(Math.random() * k +1);
