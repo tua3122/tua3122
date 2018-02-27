@@ -85,22 +85,22 @@ public class Shuffler {
 	 * searching for an as-yet-unselected card.
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
-	public static void selectionShuffle(int[] values) {
+	/*public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-		int[] shuffled = new int[52];
+		/*int[] shuffled = new int[52];
 		int j = 0;
 		for(int k=0; k<=51;k++){
 			j= (int)(Math.random() * 52);
 			shuffled[k] = values[j];
 		}
-	}
+	}*/
 	
-	public static void eSelectionShuffle(int[] values){
-		Card[] shuffled = new Card[52];
-		int j = 0;
-		for(int k=51; k>=0; k--){
-			j= (int)(Math.random() * k +1);
-			shuffled[k] = values[j];
+	public static void selectionShuffle(int[] values){
+		for(int k=51; k>=1; k--){
+			int r = (int)(Math.random() * k);
+            int tmp = values[r];
+            values[r]= values[k];
+            values[k]= tmp;;
 		}
 	}
 }
