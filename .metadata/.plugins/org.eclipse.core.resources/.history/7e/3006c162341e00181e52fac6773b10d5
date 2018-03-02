@@ -1,0 +1,12 @@
+
+public class Numbers {
+	
+	public static boolean isGoofy(int num){
+		return true;
+	}
+	
+	public static int[] getSomeGoofyNumbers(int count){
+		return [0];
+	}
+
+}
