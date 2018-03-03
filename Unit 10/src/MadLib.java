@@ -19,6 +19,7 @@ public class MadLib
 	
 	public MadLib()
 	{
+		
 
 
 
@@ -27,10 +28,13 @@ public class MadLib
 	public MadLib(String fileName)
 	{
 		//load stuff
+		loadNouns();
+		/*for(int i = 0; i < nouns.size(); i++){
+			System.out.println(nouns.get(i));
+		}*/
 		
 		
-		
-		try{
+		/*try{
 			Scanner file = new Scanner(new File(fileName));
 		
 		
@@ -45,21 +49,24 @@ public class MadLib
 		catch(Exception e)
 		{
 			out.println("Houston we have a problem!");
-		}
+		}*/
 		
 	}
 
 	public void loadNouns()
 	{
 		try{
-		
-		
-		
-		
-		
+			Scanner file = new Scanner(new File("H:\\tua3122\\Unit 10\\src\\nouns.dat"));
+			
+			while(file.hasNextLine()){
+				nouns.add(file.nextLine());
+			}
+			file.close();
+			
 		}
 		catch(Exception e)
 		{
+			e.printStackTrace();
 		}	
 		
 	}
