@@ -10,9 +10,9 @@ public class Lab16d
 {
 	public static void main( String args[] )
 	{
-		MadLib story = new MadLib("story.dat");
+		MadLib story = new MadLib("H:\\tua3122\\Unit 10\\src\\story.dat");
 
 		
-		out.println("\n");
+		out.println(story);
 	}
 }

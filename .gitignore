@@ -52,3 +52,6 @@ Temporary Items
 *.launch
 *.xmi
 .metadata/
+.recommenders/
+*.nrm
+*.tim
