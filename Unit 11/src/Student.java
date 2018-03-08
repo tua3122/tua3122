@@ -22,21 +22,19 @@ public class Student
 	
 	public Student(String name, String gradeList)
 	{
-
-
-
+		setName(name);
+		setGrades(gradeList);
 	}
 	
 	public void setName(String name)
 	{
-
-
+		myName = name;
 	}	
 	
 	public void setGrades(String gradeList)
 	{
-
-	
+		Grades grades = new Grades(gradeList);	
+		myGrades = grades;
 	}
 	
 	public void setGrade(int spot, double grade)
@@ -47,7 +45,7 @@ public class Student
 
 	public String getName()
 	{
-		return "";
+		return myName;
 	}
 	
 	public int getNumGrades()
@@ -57,7 +55,7 @@ public class Student
 
 	public double getSum()
 	{
-		return 0.0;
+		return grades.getSum();
 	}
 	
 	public double getAverage()
