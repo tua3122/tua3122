@@ -188,3 +188,7 @@ local.properties
  
 # PDT-specific
 .buildpath
+
+.xmi
+.xml
+\.metadata\.plugins

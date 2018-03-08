@@ -15,7 +15,7 @@ public class Lab16e
 {
 	public static void main( String args[] ) throws IOException
 	{
-		Histogram test = new Histogram(new char[]{'a','b','c'},"lab16e1.dat");
+		Histogram test = new Histogram(new char[]{'x','a','r', 'g'},"lab16e3.dat");
 		test.loadAndAnalyzeFile();
 		out.println("Letter occurring most : "+test.mostFrequent());
 		out.println("Letter occurring least : "+test.leastFrequent());
