@@ -16,7 +16,7 @@ public class Grades
 	
 	public Grades()
 	{
-		setGrades("");
+		
 	}
 	
 	public Grades(String gradeList)
@@ -54,6 +54,10 @@ public class Grades
 		return sum;
 	}
 	
+	public int getLength(){
+		return grades.length;
+	}
+	
 	public double getLowGrade()
 	{
 		double low = Double.MAX_VALUE;
@@ -85,6 +89,14 @@ public class Grades
 		return grades.length;
 	}
 	
+	public double getAverage()
+	{
+		double average = getSum();
+		return average/grades.length;
+	}
+	
+	
+	
 	public String toString()
 	{
 		String output="";
@@ -95,4 +107,5 @@ public class Grades
 
 		return output;
 	}	
+	
 }

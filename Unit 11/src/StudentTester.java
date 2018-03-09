@@ -9,6 +9,7 @@ import java.util.Scanner;
 import static java.lang.System.*;
 import static java.util.Arrays.*;
 
+@SuppressWarnings("unused")
 public class StudentTester
 {
    public static void main( String args[] )

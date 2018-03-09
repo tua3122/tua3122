@@ -9,6 +9,7 @@ import java.util.Scanner;
 import static java.lang.System.*;
 import static java.util.Arrays.*;
 
+@SuppressWarnings("unused")
 public class Student
 {
 	private String myName;
@@ -33,14 +34,12 @@ public class Student
 	
 	public void setGrades(String gradeList)
 	{
-		Grades grades = new Grades(gradeList);	
-		myGrades = grades;
+		myGrades = new Grades(gradeList);
 	}
 	
 	public void setGrade(int spot, double grade)
 	{
-
-
+		myGrades.setGrade(spot, grade);
 	}
 
 	public String getName()
@@ -50,36 +49,38 @@ public class Student
 	
 	public int getNumGrades()
 	{
-		return 0;
+		return myGrades.getNumGrades();
 	}
 
 	public double getSum()
 	{
-		return grades.getSum();
+		return myGrades.getSum(); 
 	}
 	
 	public double getAverage()
 	{
-		return 0.0;
+		return myGrades.getAverage();
 	}
 
 	public double getAverageMinusLow()
 	{
-		return 0.0;
+		double average = myGrades.getSum()-myGrades.getLowGrade();
+		average = average/(myGrades.getLength()-1);
+		return average;
 	}
 	
 	public double getHighGrade()
 	{
-		return 0.0;		
+		return myGrades.getHighGrade();		
 	}
 	
 	public double getLowGrade()
 	{
-		return 0.0;	
+		return myGrades.getLowGrade();	
 	}
 	
 	public String toString()
 	{
-		return "";
+		return getName()+" = " + myGrades;
 	}	
 }
