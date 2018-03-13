@@ -6,11 +6,11 @@
 
 import static java.lang.System.*;
 
-public class Word implements Comparable<Word>
+public class WordE implements Comparable<WordE>
 {
 	private String word;
 
-	public Word( String s)
+	public WordE( String s)
 	{
 
 
@@ -30,7 +30,7 @@ public class Word implements Comparable<Word>
 		return vowelCount;
 	}
 
-	public int compareTo(Word rhs)
+	public int compareTo(WordE rhs)
 	{
 
 

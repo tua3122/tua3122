@@ -6,23 +6,24 @@
 
 import static java.lang.System.*;
 
-public class Word implements Comparable<Word>
+public class WordD implements Comparable<WordD>
 {
 	private String word;
 
-	public Word( String s )
+	public WordD( String s )
 	{
-
-
+		word = s;
 	}
 
-	public int compareTo( Word rhs )
+	public int compareTo( WordD rhs )
 	{
-		
-		
-		
-		
-		
+		WordD com = (WordD)rhs;
+		if(word.length()>com.word.length()){
+			return 1;
+		}
+		if(word.length()<com.word.length()){
+			return -1;
+		}
 		return 0;
 	}
 
