@@ -6,22 +6,22 @@
 
 import static java.lang.System.*;
 
-public class WordD implements Comparable<WordD>
+@SuppressWarnings("unused")
+public class Word implements Comparable<Word>
 {
 	private String word;
 
-	public WordD( String s )
+	public Word( String s )
 	{
 		word = s;
 	}
 
-	public int compareTo( WordD rhs )
+	public int compareTo( Word rhs )
 	{
-		WordD com = (WordD)rhs;
-		if(word.length()>com.word.length()){
+		if(word.length()>rhs.word.length()){
 			return 1;
 		}
-		if(word.length()<com.word.length()){
+		if(word.length()<rhs.word.length()){
 			return -1;
 		}
 		return 0;
