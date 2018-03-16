@@ -15,11 +15,17 @@ public class Lab15d
 {
 	public static void main( String args[] ) throws IOException
 	{
-
-
-
-
-
-
+		try{
+			Scanner file = new Scanner(new File("H:\\tua3122\\Unit 13\\src\\lab15d.dat"));
+			int count = file.nextInt();
+			file.nextLine();
+			FancyWords s;
+			while(file.hasNextLine()){
+				s = new FancyWords(file.nextLine());
+				out.print(s);
+			}
+		}
+		catch(Exception e){}
+		
 	}
 }
