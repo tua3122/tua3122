@@ -4,6 +4,7 @@ import java.util.ArrayList;
 /**
  * The ElevensBoard class represents the board in a game of Elevens.
  */
+@SuppressWarnings("unused")
 public class ElevensBoard extends Board {
 
 	/**
@@ -32,6 +33,7 @@ public class ElevensBoard extends Board {
 	/**
 	 * Flag used to control debugging print statements.
 	 */
+
 	private static final boolean I_AM_DEBUGGING = false;
 
 
@@ -53,7 +55,13 @@ public class ElevensBoard extends Board {
 	 */
 	@Override
 	public boolean isLegal(List<Integer> selectedCards) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		if(selectedCards.size()==2){
+			return containsPairSum11(selectedCards);
+		}
+		if(selectedCards.size()==3){
+			return containsJQK(selectedCards);
+		}
+		return false;
 	}
 
 	/**
@@ -67,6 +75,7 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		return (containsPairSum11(cardIndexes())||containsJQK(cardIndexes()));
 	}
 
 	/**
@@ -78,7 +87,14 @@ public class ElevensBoard extends Board {
 	 *              contain an 11-pair; false otherwise.
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		for(int i = 0; i < selectedCards.size(); i++){
+			for(int j = i+1; j < selectedCards.size(); j++){
+				if(cardAt(selectedCards.get(i)).pointValue()+cardAt(selectedCards.get(j)).pointValue()==11){
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -90,6 +106,21 @@ public class ElevensBoard extends Board {
 	 *              include a jack, a queen, and a king; false otherwise.
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		boolean jack = false, queen = false, king = false;
+		for(int i = 0; i < selectedCards.size(); i++){
+			if(cardAt(selectedCards.get(i)).rank()=="jack"){
+				jack = true;
+			}
+			if(cardAt(selectedCards.get(i)).rank()=="queen"){
+				queen = true;
+			}
+			if(cardAt(selectedCards.get(i)).rank()=="king"){
+				king = true;
+			}
+		}
+		if( jack && queen && king){
+			return true;
+		}
+		return false;
 	}
 }
