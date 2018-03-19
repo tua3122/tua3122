@@ -34,27 +34,17 @@ public class FancyWords
 				max = wordRay[i].length();
 			}
 		}
-		for(int i = 0; i<max; i++){
+		for(int i = max; i>0; i--){
 			for(int j = wordRay.length-1; j>=0; j--){
-				if(wordRay[j].charAt(wordRay[j].length()-i)>=0){
-					output += wordRay[j].charAt(wordRay[j].length()-i);
-				}
-			}
-		}
-		/*for(int i = 0; i < max; i++){
-			for( int j = 0; j<wordRay.length; j++){
-				out.print(wordRay[j].charAt(max-i));
-				output += wordRay[j].charAt(max-i);
-				/*if(wordRay[j].charAt(max-i)==' '){
-					output+=" ";
+				if(wordRay[j].charAt(i)==-1){
+					output += " ";
 				}
 				else{
-					output+=wordRay[j].charAt(max-i);
+					output += wordRay[j].charAt(i);
 				}
 			}
 		}
-		out.println();*/
-		output=""+max;
+		output = "pls";
 		return output+"\n\n";
 	}
 }

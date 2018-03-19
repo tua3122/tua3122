@@ -8,6 +8,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="cardAt"/>
 			<item value="Word"/>
 			<item value="test"/>
 			<item value="isempty"/>

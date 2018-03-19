@@ -192,3 +192,8 @@ local.properties
 .xmi
 .xml
 \.metadata\.plugins
+*.xmi
+*.xmi
+.metadata/.plugins/org.eclipse.jdt.core/3692025978.index
+*.xml
+.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources

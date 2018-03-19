@@ -19,11 +19,11 @@ public class Lab15d
 			Scanner file = new Scanner(new File("H:\\tua3122\\Unit 13\\src\\lab15d.dat"));
 			int count = file.nextInt();
 			file.nextLine();
-			FancyWords s;
-			while(file.hasNextLine()){
-				s = new FancyWords(file.nextLine());
+			for(int i = 0; i < count; i++){
+				FancyWords s = new FancyWords(file.nextLine());
 				out.print(s);
 			}
+			file.close();
 		}
 		catch(Exception e){}
 		
