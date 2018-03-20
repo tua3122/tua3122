@@ -197,3 +197,9 @@ local.properties
 .metadata/.plugins/org.eclipse.jdt.core/3692025978.index
 *.xml
 .metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
+*.log
+.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat
+*.xmi
+.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml
+*.log
+.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat
