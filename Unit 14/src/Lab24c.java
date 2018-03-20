@@ -13,19 +13,16 @@ public class Lab24c
 {
 	public static void main( String args[] ) throws IOException
 	{
-		Scanner file = new Scanner(new File("lab24c.dat"));
+		Scanner file = new Scanner(new File("H:\\tua3122\\Unit 14\\src\\lab24c.dat"));
 		int runCount = file.nextInt();
 		for (int i=0; i<runCount; i++)
 		{
 	      int size = file.nextInt();
-			PascalsTriangle test = new PascalsTriangle(size);
-
-
-
-
+	      PascalsTriangle test = new PascalsTriangle(size);
+	      out.print(test);
 	   }
+		file.close();
 	}
-
 }
 
 
