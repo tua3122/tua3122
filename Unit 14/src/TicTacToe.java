@@ -7,26 +7,45 @@
 import java.util.Scanner;
 import static java.lang.System.*;
 
-public class FancyWordTwo
+public class TicTacToe
 {
 	private char[][] mat;
 
-	public FancyWordTwo()
+	public TicTacToe()
 	{
+
 
 	}
 
-   public FancyWordTwo(String s)
+	public TicTacToe(String game)
 	{
 
 
 
 
+	}
+
+	public String getWinner()
+	{
+
+
+
+
+
+
+
+
+
+
+
+
+		return "";
 	}
 
 	public String toString()
 	{
 		String output="";
+
 
 
 
