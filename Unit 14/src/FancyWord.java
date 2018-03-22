@@ -7,6 +7,7 @@
 import java.util.Scanner;
 import static java.lang.System.*;
 
+@SuppressWarnings("unused")
 public class FancyWord
 {
 	private char[][] mat;
@@ -22,8 +23,9 @@ public class FancyWord
 	   mat = new char[s.length()][s.length()];
 	   for(int i = 0; i<s.length();i++){
 		   mat[i][i]+=s.charAt(i);
+		   mat[i][s.length()-1-i]=s.charAt(i);
 		   mat[0][i]=s.charAt(i);
-		   mat[s.length()][i]=s.charAt(i);
+		   mat[s.length()-1][i]=s.charAt(i);
 	   }
 	   x.close();
 	}
@@ -31,6 +33,12 @@ public class FancyWord
 	public String toString()
 	{
 		String output="";
+		for(int i = 0; i<mat.length;i++){
+			for(int j = 0; j<mat[0].length; j++){
+				output+=mat[i][j];
+			}
+			output+="\n";
+		}
 
 
 
