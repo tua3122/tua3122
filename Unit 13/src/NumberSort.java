@@ -26,20 +26,12 @@ public class NumberSort
 	
 	public static int[] getSortedDigitArray(int number)
 	{
-		int[] sorted = new int[getNumDigits(number)];
-		for(int i = 0; i < sorted.length; i++){
-			sorted[i]=number%10;
+		int[]nums = new int[getNumDigits(number)];
+		for(int i = 0; i < nums.length; i++){
+			nums[i]=number%10;
 			number/=10;
 		}
-		
-		for(int i = 0; i< sorted.length; i++){
-			out.print(sorted[i]);
-		}
-
-
-
-
-
-		return sorted;
+		Arrays.sort(nums);
+		return nums;
 	}
 }
