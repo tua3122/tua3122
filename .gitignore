@@ -203,3 +203,10 @@ local.properties
 .metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml
 *.log
 .metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat
+.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps
+*.log
+.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
+*.xml
+*.dat
+*.xml
+.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log

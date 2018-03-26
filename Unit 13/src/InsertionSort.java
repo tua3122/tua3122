@@ -13,39 +13,32 @@ class InsertionSort
 	private ArrayList<String> list;
 
 	public InsertionSort()
-	{
-
-
-
+	{	
+		list = new ArrayList<String>();
 	}
 
 	//modfiers
 	public void add( String  word)
 	{
 		int loc = 0;
-
-
-
-
-
-
-
-
+		if(list.indexOf(word)==-1){
+			return;
+		}
+		list.add(word);
 	}
 
 
 	public void remove(String word)
 	{
-
-
-
-
-
-
+		list.remove(word);
 	}
 
 	public String toString()
 	{
-		return "";
+		String output = "";
+		for(int i = 0; i < list.size() -1; i++){
+			output+=list.get(0) + " ";
+		}
+		return output;
 	}
 }
