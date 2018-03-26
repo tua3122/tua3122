@@ -207,6 +207,5 @@ local.properties
 *.log
 .metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
 *.xml
-*.dat
 *.xml
 .metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log
