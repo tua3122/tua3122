@@ -1,53 +1,49 @@
-//© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class - 
-//Lab  - 
-
 import static java.lang.System.*;
-import java.util.Arrays;		//use Arrays.toString() to help print out the array
+import java.util.Arrays;
 
 public class QuickSort
 {
 	private static int passCount;
 
-	public static void quickSort(Comparable[] list)
+	public static void quickSort(int[] list)
 	{
-		passCount = 0;
-		quickSort(list, (int) list[0], (int)list[list.length-1]);
+		passCount=0;
+		quickSort(list, 0, list.length-1);
+		System.out.print("pass " + passCount + " [");
+		for(int i = 0; i < list.length-1; i++){
+			System.out.print(list[i]+", ");
+		}
+		System.out.print(list[list.length-1]+"]\n");
 	}
 
 
-	private static void quickSort(Comparable[] list, int low, int high)
+	private static void quickSort(int[] list, int low, int high)
 	{
-		passCount++;
-		if (low<high){
-			int pi = partition(list, low, high);
-			
-			quickSort(list, low, pi - 1);
-			quickSort(list, pi + 1, high);
+		if(low < high){
+			int part = partition(list, low, high);
+			quickSort(list, low, part - 1);
+			quickSort(list, part + 1, high);
 		}
 	}
 
 
-	private static int partition(Comparable[] list, int low, int high)
+	private static int partition(int[] list, int low, int high)
 	{
-		int pivot = high;
-		
-		int i = (low - 1);
-		for(int j = low; j <= high -1; j++){
-			if((int)list[j]<=pivot){
+		int pivot = list[high];
+		int i = (low-1);
+		for(int j = low; j < high; j++){
+			if(list[j]<=pivot){
+				passCount++;
 				i++;
-				int temp = (int) list[j];
-				list[j]=list[i];
-				list[i]=temp;
+				int temp = list[i];
+				list[i] = list[j];
+				list[j] = temp;
 			}
-			
-			
 		}
-		int temp = (int)list[i+1];
-		list[i+1] = (int) list[high];
-		list[high]= temp;
-		return (i+1);
+		
+		int temp = list[i+1];
+		list[i+1] = list[high];
+		list[high] = temp;
+		return i+1;
 	}
 }

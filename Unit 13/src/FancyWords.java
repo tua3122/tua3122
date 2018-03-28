@@ -23,24 +23,41 @@ public class FancyWords
 	public void setWords(String sentence)
 	{
 		wordRay = sentence.split(" ");
+		for(int i = 0; i < wordRay.length; i++){
+			System.out.println(wordRay[i]);
+		}
 	}
 	public String toString()
 	{
-		String output=" ";
+		String output="";
+		
+		//set max length
 		int max = Integer.MIN_VALUE;
 		for(int i = 0; i < wordRay.length; i++){
-			for(int j=0; j < max; j++){
-				output+=wordRay[i].charAt(0);
-				if(wordRay[i].charAt(j)!=-1){
-					
-				}
-			}
-			
-			/*if(wordRay[i].length()>max){
+			if(wordRay[i].length()>max){
 				max = wordRay[i].length();
-			}*/
+			}	
 		}
-		//output+=wordRay[0].charAt(0);
+		System.out.println(max);
+		
+		for (int i = wordRay.length-1; i >= 0; i--){
+			output+=wordRay[i].charAt(4) +"";
+			for(int j = 0; j < max; j++){
+				output+= wordRay[i][j] + "";
+			}
+		}
+		
+		
+		System.out.println(output);
+		return output+"\n";
+	}
+}
+
+
+
+
+
+//output+=wordRay[0].charAt(0);
 		/*for(int i = 1; i<=max;i++){
 			for(int j = 1; j<=wordRay.length; j++){
 				output+=wordRay[wordRay.length-j].charAt(max-i);
@@ -65,7 +82,3 @@ public class FancyWords
 		}
 		output = "pls";
 		return output+"\n\n";*/
-		System.out.println(output);
-		return output+"\n";
-	}
-}

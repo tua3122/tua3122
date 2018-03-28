@@ -1,0 +1,92 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class - 
+//Lab  - 
+
+import static java.lang.System.*;
+import java.util.Arrays;		//use Arrays.toString() to help print out the array
+
+public class QuickSort
+{
+	private static int passCount;
+
+	public static void quickSort(int[] list)
+	{
+		quickSort(list, list[0], list[list.length-1]);
+	}
+
+
+	private static void quickSort(int[] list, int low, int high)
+	{
+		/*int passCount = 0;
+		while(low<high){
+			int split = partition(list, low, high);
+			quickSort(list, low, split);
+			quickSort(list, split + 1, high);
+			passCount++;
+		}
+		String output = "pass " + passCount;
+		System.out.println(output + list.toString());*/
+		if (low < high)
+        {
+            /* pi is partitioning index, arr[pi] is 
+              now at right place */
+            int pi = partition(list, low, high);
+ 
+            // Recursively sort elements before
+            // partition and after partition
+            sort(list, low, pi-1);
+            sort(list, pi+1, high);
+        }
+	}
+
+
+	private static int partition(int[] list, int low, int high)
+	{
+		/*int pivot = (int) list[0], bot = low-1, top = high +1;
+		while(bot<top){
+			bot+=1;
+			top-=1;
+			if(bot>=top){
+				return top;
+			}
+			int temp = (int)list[top];
+			list[top] = list[bot];
+			list[bot] = temp;
+		}
+		return (0);*/
+		int pivot = list[high]; 
+        int i = (low-1);
+        for (int j=low; j<high; j++)
+        {
+            if (list[j] <= pivot)
+            {
+                i++;
+                int temp = list[i];
+                list[i] = list[j];
+                list[j] = temp;
+            }
+        }
+ 
+        int temp = list[i+1];
+        list[i+1] = list[high];
+        list[high] = temp;
+ 
+        return i+1;
+	}
+	private static void sort(int list[], int low, int high)
+    {
+        if (low < high)
+        {
+            /* pi is partitioning index, arr[pi] is 
+              now at right place */
+            int pi = partition(list, low, high);
+ 
+            // Recursively sort elements before
+            // partition and after partition
+            sort(list, low, pi-1);
+            sort(list, pi+1, high);
+        }
+    }
+}
