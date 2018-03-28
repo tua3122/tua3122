@@ -22,7 +22,7 @@ public class QuickSort
 		if(low < high){
 			int part = partition(list, low, high);
 			quickSort(list, low, part - 1);
-			quickSort(list, part + 1, high);
+			quickSort(list, part + 1, high);			
 		}
 	}
 
