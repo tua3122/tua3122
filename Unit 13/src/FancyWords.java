@@ -8,9 +8,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Collections;
 import static java.lang.System.*;
-/*Takes last character of each word.
- * 
- */
+
 public class FancyWords
 {
 	private String[] wordRay;
@@ -23,62 +21,32 @@ public class FancyWords
 	public void setWords(String sentence)
 	{
 		wordRay = sentence.split(" ");
-		for(int i = 0; i < wordRay.length; i++){
-			System.out.println(wordRay[i]);
+		for(int i = 0; i < wordRay.length/2; i++) {
+			String temp = wordRay[i];
+			wordRay[i] = wordRay[wordRay.length-i-1];
+			wordRay[wordRay.length-i-1]=temp;
 		}
 	}
 	public String toString()
 	{
 		String output="";
-		
-		//set max length
 		int max = Integer.MIN_VALUE;
 		for(int i = 0; i < wordRay.length; i++){
 			if(wordRay[i].length()>max){
 				max = wordRay[i].length();
 			}	
 		}
-		System.out.println(max);
-		
-		for (int i = wordRay.length-1; i >= 0; i--){
-			output+=wordRay[i].charAt(4) +"";
-			for(int j = 0; j < max; j++){
-				output+= wordRay[i][j] + "";
+		for(int i = 0; i < wordRay.length; i++) {
+			while(wordRay[i].length()!=max) {
+				wordRay[i] = " " + wordRay[i];
 			}
 		}
-		
-		
-		System.out.println(output);
+		for(int j = 1; j<=max; j++) {
+			for(int i = 0; i < wordRay.length; i++) {
+				output+=(wordRay[i].charAt(wordRay[i].length()-j));
+			}
+			output+="\n";
+		}		
 		return output+"\n";
 	}
 }
-
-
-
-
-
-//output+=wordRay[0].charAt(0);
-		/*for(int i = 1; i<=max;i++){
-			for(int j = 1; j<=wordRay.length; j++){
-				output+=wordRay[wordRay.length-j].charAt(max-i);
-			}
-		}
-		for(int i = 1; i<=max;i++){
-			for(int j = 1; j<=wordRay.length; j++){
-				output+=wordRay[j].charAt(i);
-			}
-		}
-		
-		for(int i = max; i>0; i--){
-			for(int j = wordRay.length-1; j>=0; j--){
-				output += wordRay[j].charAt(i-1);
-				if(wordRay[j].charAt(i)==-1){
-					output += " ";
-				}
-				else{
-					output += wordRay[j].charAt(i-1);
-				}
-			}
-		}
-		output = "pls";
-		return output+"\n\n";*/

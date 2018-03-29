@@ -20,6 +20,7 @@ public class Lab15d
 			int count = file.nextInt();
 			file.nextLine();
 			FancyWords s;
+			
 			for(int i = 0; i < count; i++){
 				s = new FancyWords(file.nextLine());
 				System.out.print(s);
@@ -27,6 +28,6 @@ public class Lab15d
 			file.close();
 		}
 		catch(Exception e){}
-		
+
 	}
 }

@@ -15,7 +15,7 @@ public class Lab22c
 		InsertionSort test = new InsertionSort();
 		out.println("adding alice");
 		test.add("alice");
-		out.println("adding tommy"); 
+		out.println("adding tommy");
 		test.add("tommy");
 		out.println("adding bobby");
 		test.add("bobby");
