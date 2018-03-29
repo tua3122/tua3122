@@ -20,14 +20,7 @@ class BallTestTwo extends Canvas implements Runnable
 		setBackground(Color.WHITE);
 		setVisible(true);
 
-		//instantiate a new Ball
-
-
-		//test the Ball thoroughly
-		
-
-		//test all constructors
-
+		ball = new Ball();
 
 		new Thread(this).start();
 	}
