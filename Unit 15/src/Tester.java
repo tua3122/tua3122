@@ -9,8 +9,9 @@ import java.awt.Component;
 
 public class Tester extends JFrame
 {
-	private static final int WIDTH = 800;
-	private static final int HEIGHT = 600;
+	//cut down to size
+	private static final int WIDTH = 590; //800
+	private static final int HEIGHT = 500; //500
 
 	public Tester()
 	{
@@ -19,12 +20,11 @@ public class Tester extends JFrame
 		
 		getContentPane().add(new BlockTestTwo());		
 		
-		//uncomment when you are ready to test the Ball
-		getContentPane().add(new BallTestTwo());		
+		//getContentPane().add(new BallTestTwo());		
 		
-		//PaddleTestTwo padTest = new PaddleTestTwo();
-		//((Component)padTest).setFocusable(true);			
-		//getContentPane().add(padTest);
+		PaddleTestTwo padTest = new PaddleTestTwo();
+		((Component)padTest).setFocusable(true);			
+		getContentPane().add(padTest); //annoying corner square
 				
 		setVisible(true);
 	}
