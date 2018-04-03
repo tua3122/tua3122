@@ -15,6 +15,7 @@ import static java.lang.Character.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.ActionListener;
 
+@SuppressWarnings({ "serial", "unused" })
 public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 {
 	private Ball ball;
@@ -132,7 +133,8 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 		//no code needed here
 	}
 	
-   public void run()
+   @SuppressWarnings("static-access")
+public void run()
    {
    	try
    	{

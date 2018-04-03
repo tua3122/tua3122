@@ -11,6 +11,7 @@ import java.awt.Canvas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+@SuppressWarnings({ "serial", "unused" })
 class BallTestTwo extends Canvas implements Runnable
 {
 	private Ball ball;
@@ -45,7 +46,8 @@ class BallTestTwo extends Canvas implements Runnable
 		}
 	}
 	
-   public void run()
+   @SuppressWarnings("static-access")
+public void run()
    {
    	try
    	{

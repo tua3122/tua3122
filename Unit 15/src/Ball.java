@@ -48,6 +48,10 @@ public class Ball extends Block implements Collidable
 		
 	}
 	
+	public void setColor(Color col) {
+		super.setColor(col);
+	}
+	
 	public void setXSpeed(int xS)
 	{
 		xSpeed=xS;
@@ -63,7 +67,14 @@ public class Ball extends Block implements Collidable
 	   super.draw(window, Color.WHITE);
 	   setX(getX()+xSpeed);
 	   setY(getY()+ySpeed);
-	   super.draw(window, Color.BLACK);
+	   super.draw(window, Color.BLUE);
+   }
+   public void moveAndDraw(Graphics window, Color col)
+   {	   
+	   super.draw(window, Color.WHITE);
+	   setX(getX()+xSpeed);
+	   setY(getY()+ySpeed);
+	   super.draw(window, col);
    }
    
 	public boolean equals(Ball obj)
@@ -89,37 +100,36 @@ public class Ball extends Block implements Collidable
 	   return output;
    }
    
-   public boolean didCollideLeft(Object obj){
+   public boolean didCollidePaddle(Object obj){
 	   Paddle leftPaddle = (Paddle) obj;
-	   if (equals(obj)){
-		   if(getX()>leftPaddle.getX() && getX() < leftPaddle.getX()+leftPaddle.getWidth()){
-				if(getY()>leftPaddle.getY() && getY() < leftPaddle.getY()+leftPaddle.getHeight()){
-					return true;
-				}
+	   if(getX()>leftPaddle.getX() && getX() < leftPaddle.getX()+leftPaddle.getWidth()){
+			if(getY()>leftPaddle.getY() && getY() < leftPaddle.getY()+leftPaddle.getHeight()){
+				return true;
 			}
+		}
+	   return false;
+   }
+   public boolean didCollideLeft(Object obj){
+	   if(getX()<=10) {
+		   return true;
 	   }
 	   return false;
    }
    public boolean didCollideRight(Object obj){
-	   Paddle rightPaddle = (Paddle) obj;
-	   if (equals(obj)){
-		   if(getX()>rightPaddle.getX() && getX() < rightPaddle.getX()+rightPaddle.getWidth()){
-				if(getY()>rightPaddle.getY() && getY() < rightPaddle.getY()+rightPaddle.getHeight()){
-					return true;
-				}
-			}
+	   if(getX()>=780) {
+		   return true;
 	   }
 	   return false;
    }
    public boolean didCollideTop(Object obj){
-	   if(!(getY()>=10))
+	   if(getY()<=10)
 		{
 			return true;
 		}
 	   return false;
    }
    public boolean didCollideBottom(Object obj){
-	   if(!(getY()<=550))
+	   if(getY()>=510)
 		{
 			return true;
 		}

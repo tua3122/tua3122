@@ -5,6 +5,7 @@
 //Lab  -
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Canvas;
@@ -16,58 +17,75 @@ import java.awt.image.BufferedImage;
 import java.awt.event.ActionListener;
 import java.lang.*;
 
+@SuppressWarnings({ "serial", "unused" })
 public class Pong extends Canvas implements KeyListener, Runnable
 {
-	private Ball ball;
+	//private Ball ball;
+	private BlinkyBall ball;
+	//private SpeedUpBall ball;
 	private Paddle leftPaddle;
 	private Paddle rightPaddle;
 	private boolean[] keys;
 	private BufferedImage back;
-
+	int rightScore,leftScore;
 
 	public Pong()
-	{
-		//set up all variables related to the game
-		ball = new Ball(200, 200, 10, 10, Color.BLUE);
+	{		
+		//ball = new Ball(200, 200, 10, 10, Color.BLUE);
+		ball= new  BlinkyBall(200,200,10,10);
+		//ball = new SpeedUpBall(200,200,10,10, Color.BLUE, 1, 1);
 		leftPaddle = new Paddle(30, 300, 10, 80, Color.ORANGE, 5);
 		rightPaddle = new Paddle(740, 300, 10, 80, Color.ORANGE, 5);
 		keys = new boolean[4];
+		rightScore=0;
+		leftScore=0;
 
     
     	setBackground(Color.WHITE);
 		setVisible(true);
 		
 		new Thread(this).start();
-		addKeyListener(this);		//starts the key thread to log key strokes
+		addKeyListener(this);
 	}
 	
    public void update(Graphics window){
 	   paint(window);
+	   window.setColor(Color.RED);
+	   window.drawString("SCOREBOARD", 350, 10);
+	   window.drawString("Left:" + leftScore, 350, 30);
+	   window.drawString("Right:" + rightScore, 350, 50);
    }
 
    public void paint(Graphics window)
    {
-	   	ball.moveAndDraw(window);
+	   Graphics2D twoDGraph = (Graphics2D)window;
+	   ball.moveAndDraw(window);
 		leftPaddle.draw(window);
 		rightPaddle.draw(window);
-		if(!(ball.getX()>=10 && ball.getX()<=780))
+		if(ball.didCollideLeft(window)||ball.didCollideRight(window))
 		{
+			window.setColor(Color.WHITE);
+			   window.fillRect(350, 10, 50, 100);
 			ball.setXSpeed(0);
 			ball.setYSpeed(0);
+			if(ball.getX()<=10) {
+				rightScore++;
+			}
+			else if(ball.getY()>=10){
+				leftScore++;
+			}
+			window.setColor(Color.WHITE);
+			window.fillRect(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight());
+			//ball = new Ball(200, 200, 10, 10, Color.BLUE);
+			ball = new BlinkyBall(200,200,10,10);
+			//ball = new SpeedUpBall(200,200,10,10, Color.BLUE, 1, 1);
 		}
-		if(!(ball.getY()>=10 && ball.getY()<=510))
+		if(ball.didCollideBottom(window)||ball.didCollideTop(window))
 		{
 			ball.setYSpeed(-ball.getYSpeed());
 		}
-		if(ball.getX()>leftPaddle.getX() && ball.getX() < leftPaddle.getX()+leftPaddle.getWidth()){
-			if(ball.getY()>leftPaddle.getY() && ball.getY() < leftPaddle.getY()+leftPaddle.getHeight()){
-				ball.setXSpeed(-ball.getXSpeed());
-			}
-		}
-		if(ball.getX()>rightPaddle.getX() && ball.getX() < rightPaddle.getX()+rightPaddle.getWidth()){
-			if(ball.getY()>rightPaddle.getY() && ball.getY() < rightPaddle.getY()+rightPaddle.getHeight()){
-				ball.setXSpeed(-ball.getXSpeed());
-			}
+		if(ball.didCollidePaddle(leftPaddle)||ball.didCollidePaddle(rightPaddle)) {
+			ball.setXSpeed(-ball.getXSpeed());
 		}
 
 		if(keys[0] == true)
@@ -86,23 +104,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		{
 			rightPaddle.moveDownAndDraw(window);
 		}
-		/*//set up the double buffering to make the game animation nice and smooth
-		Graphics2D twoDGraph = (Graphics2D)window;
-
-		//take a snap shop of the current screen and same it as an image
-		//that is the exact same width and height as the current screen
-		if(back==null)
-		   back = (BufferedImage)(createImage(getWidth(),getHeight()));
-
-		//create a graphics reference to the back ground image
-		//we will draw all changes on the background image
-		Graphics graphToBack = back.createGraphics();
-
-
-		ball.moveAndDraw(graphToBack);
-		leftPaddle.draw(graphToBack);
-		rightPaddle.draw(graphToBack);*/
-		//twoDGraph.drawImage(back, null, 0, 0);
+		twoDGraph.drawImage(back, null, 0, 0);
 	}
 
 	public void keyPressed(KeyEvent e)
@@ -129,7 +131,8 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
 	public void keyTyped(KeyEvent e){}
 	
-   public void run()
+   @SuppressWarnings("static-access")
+public void run()
    {
    	try
    	{

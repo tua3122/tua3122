@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Canvas;
 
+@SuppressWarnings("serial")
 public class BlockTestTwo extends Canvas
 {
 	public BlockTestTwo()

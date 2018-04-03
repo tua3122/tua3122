@@ -7,6 +7,7 @@
 import javax.swing.JFrame;
 import java.awt.Component;
 
+@SuppressWarnings("serial")
 public class Tester extends JFrame
 {
 	//cut down to size
@@ -29,6 +30,7 @@ public class Tester extends JFrame
 		setVisible(true);
 	}
 	
+	@SuppressWarnings("unused")
 	public static void main( String args[] )
 	{
 		Tester run = new Tester();

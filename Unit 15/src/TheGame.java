@@ -7,6 +7,7 @@
 import javax.swing.JFrame;
 import java.awt.Component;
 
+@SuppressWarnings("serial")
 public class TheGame extends JFrame
 {
 	private static final int WIDTH = 800;
@@ -25,6 +26,7 @@ public class TheGame extends JFrame
 		setVisible(true);
 	}
 	
+	@SuppressWarnings("unused")
 	public static void main( String args[] )
 	{
 		TheGame run = new TheGame();
