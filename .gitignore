@@ -209,3 +209,5 @@ local.properties
 *.xml
 *.xml
 .metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log
+*.xmi
+.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps
