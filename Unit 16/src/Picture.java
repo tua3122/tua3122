@@ -13,6 +13,7 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
  * 
  * @author Barbara Ericson ericson@cc.gatech.edu
  */
+@SuppressWarnings("unused")
 public class Picture extends SimplePicture 
 {
   ///////////////////// constructors //////////////////////////////////
@@ -304,6 +305,22 @@ public class Picture extends SimplePicture
       }
     }
   }
+  
+  public void mirrorGull(){
+	  int mirrorPoint = 345;
+	    Pixel rightPixel = null;
+	    Pixel leftPixel = null;
+	    Pixel[][] pixels = this.getPixels2D();   
+	    for (int row = 235; row < 323; row++)
+	    {
+	      for (int col = 238; col < mirrorPoint; col++)
+	      {
+	        rightPixel = pixels[row][col];      
+	        leftPixel = pixels[row][mirrorPoint - col + mirrorPoint/3];
+	        leftPixel.setColor(rightPixel.getColor());
+	      }
+	    }
+  }
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture
@@ -311,8 +328,7 @@ public class Picture extends SimplePicture
     * @param startRow the start row to copy to
     * @param startCol the start col to copy to
     */
-  public void copy(Picture fromPic, 
-                 int startRow, int startCol)
+  public void copy(Picture fromPic, int startRow, int startCol)
   {
     Pixel fromPixel = null;
     Pixel toPixel = null;
@@ -352,43 +368,94 @@ public class Picture extends SimplePicture
     this.write("collage.jpg");
   }
   
+  public void copy2(Picture fromPic, int startRow, int startCol, int endRow, int endCol)
+  {
+    Pixel fromPixel = null;
+    Pixel toPixel = null;
+    Pixel[][] toPixels = this.getPixels2D();
+    Pixel[][] fromPixels = fromPic.getPixels2D();
+    for (int fromRow = startRow, toRow = endRow; 
+         fromRow < fromPixels.length &&
+         toRow < toPixels.length; 
+         fromRow++, toRow++)
+    {
+      for (int fromCol = startCol, toCol = endCol; 
+           fromCol < fromPixels[0].length &&
+           toCol < toPixels[0].length;  
+           fromCol++, toCol++)
+      {
+        fromPixel = fromPixels[fromRow][fromCol];
+        toPixel = toPixels[toRow][toCol];
+        toPixel.setColor(fromPixel.getColor());
+      }
+    }   
+  }
+
+  /** Method to create a collage of several pictures */
+  public void myCollage()
+  {
+    Picture flower1 = new Picture("flower1.jpg");
+    Picture flower2 = new Picture("flower2.jpg");
+    this.copy2(flower1,0,0, 100, 100);
+    this.copy2(flower2,100,0, 100, 0);
+    this.copy2(flower1,200,0, 200, 0);
+    Picture flowerNoBlue = new Picture(flower2);
+    flowerNoBlue.zeroBlue();
+    this.copy2(flowerNoBlue,300,0, 300, 0);
+    this.copy2(flower1,400,0, 400, 0);
+    this.copy2(flower2,500,0, 500, 0);
+    this.mirrorVertical();
+    this.write("collage.jpg");
+  }
   
   /** Method to show large changes in color 
     * @param edgeDist the distance for finding edges
     */
   public void edgeDetection(int edgeDist)
   {
-    Pixel leftPixel = null;
-    Pixel rightPixel = null;
-    Pixel[][] pixels = this.getPixels2D();
-    Color rightColor = null;
-    for (int row = 0; row < pixels.length; row++)
-    {
-      for (int col = 0; 
-           col < pixels[0].length-1; col++)
-      {
-        leftPixel = pixels[row][col];
-        rightPixel = pixels[row][col+1];
-        rightColor = rightPixel.getColor();
-        if (leftPixel.colorDistance(rightColor) > 
-            edgeDist)
-          leftPixel.setColor(Color.BLACK);
-        else
-          leftPixel.setColor(Color.WHITE);
-      }
-    }
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+	  Pixel topPixel = null;
+	  Pixel bottomPixel = null;
+	  Pixel[][] pixels = this.getPixels2D();
+	  for (int row = 0; row < pixels.length - 1; row++)
+	    {
+	      for (int col = 0; 
+	           col < pixels[0].length-1; col++)
+	      {
+	        leftPixel = pixels[row][col];
+	        rightPixel = pixels[row][col+1];
+	        topPixel = pixels[row][col];
+	        bottomPixel = pixels[row + 1][col];
+	        if (leftPixel.colorDistance(rightPixel.getColor()) > edgeDist ||
+	            topPixel.colorDistance(bottomPixel.getColor()) > edgeDist)
+	          leftPixel.setColor(Color.BLACK);
+	        else
+	          leftPixel.setColor(Color.WHITE);
+	      }
+	  }
   }
   
+  public void edgeDetection2(int edgeDist)
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for (int row = 0; row < pixels.length - 1; row++)
+	    {
+	      for (int col = 0; col < pixels[0].length-1; col++)
+	      {
+	        if (pixels[row][col].colorDistance(pixels[row][col+1].getColor()) > edgeDist || pixels[row][col].colorDistance(pixels[row + 1][col].getColor()) > edgeDist)
+	        	pixels[row][col].setColor(Color.BLACK);
+	        else
+	        	pixels[row][col].setColor(Color.WHITE);
+	      }
+	  }
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
   public static void main(String[] args) 
   {
-    Picture beach = new Picture("beach.jpg");
-    beach.explore();
-    beach.zeroBlue();
-    beach.explore();
   }
   
 } // this } is the end of class Picture, put all new methods before this
