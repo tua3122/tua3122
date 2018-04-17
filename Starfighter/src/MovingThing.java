@@ -1,14 +1,13 @@
 //© A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
-//Class -
+//Class - 
 //Lab  -
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-@SuppressWarnings("unused")
-public abstract class MovingThing implements Locatable
+public abstract class MovingThing implements Moveable
 {
 	private int xPos;
 	private int yPos;
@@ -17,89 +16,69 @@ public abstract class MovingThing implements Locatable
 
 	public MovingThing()
 	{
-		setPos(10,10);
-		setWidth(10);
-		setHeight(10);
+		xPos = 10;
+		yPos = 10;
+		width = 10;
+		height = 10;
 	}
 
 	public MovingThing(int x, int y)
 	{
-		setPos(x,y);
-		setWidth(10);
-		setHeight(10);
+		xPos = x;
+		yPos = y;
+		width = 10;
+		height = 10;
 	}
-	
+
 	public MovingThing(int x, int y, int w, int h)
 	{
-		setPos(x,y);
-		setWidth(w);
-		setHeight(h);
+		//add code here
 	}
 
 	public void setPos( int x, int y)
 	{
-		xPos = x;
-		yPos = y;
+		//add code here
 	}
-
 
 	public void setX(int x)
 	{
-		xPos = x;
+		//add code here
 	}
-
 
 	public void setY(int y)
 	{
-		yPos = y;
+		//add code here
 	}
 
 	public int getX()
 	{
-		return xPos;
+		return 0;   //finish this method
 	}
-
 
 	public int getY()
 	{
-		return yPos;
+		return 0;  //finish this method
 	}
-	
+
 	public void setWidth(int w)
 	{
-		width = w;
+		//add code here
 	}
 
 	public void setHeight(int h)
 	{
-		height = h;
+		//add code here
 	}
 
 	public int getWidth()
 	{
-		return width;  
+		return 0;  //finish this method
 	}
 
 	public int getHeight()
 	{
-		return height;  
+		return 0;  //finish this method
 	}
-
-	/*public abstract void setSpeed( int s );
-	public abstract int getSpeed();
-	public abstract void draw(Graphics window);
-
-	public void move(String direction)
-	{
-		if(direction.equals("LEFT"))
-	      setX(getX()-getSpeed());
-		if(direction.equals("RIGHT"))
-		      setX(getX()+getSpeed());
-		if(direction.equals("UP"))
-		      setY(getY()-getSpeed());
-		if(direction.equals("DOWN"))
-		      setY(getY()+getSpeed());
-	}*/
 
 	public abstract void move(String direction);
 	public abstract void draw(Graphics window);

@@ -1,13 +1,14 @@
 //© A+ Computer Science  -  www.apluscompsci.com
 //Name -
-//Date -
+//Date - 
 //Class -
 //Lab  -
 
+import java.io.File;
+import java.net.URL;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.io.File;
 import javax.imageio.ImageIO;
 
 public class Alien extends MovingThing
@@ -17,42 +18,52 @@ public class Alien extends MovingThing
 
 	public Alien()
 	{
-		this(0,0,0);
+		this(0,0,30,30,0);
 	}
 
 	public Alien(int x, int y)
 	{
-		this(x,y,0);
+		//add code here
 	}
 
 	public Alien(int x, int y, int s)
 	{
-		super(x, y);
+		//add code here
+	}
+
+	public Alien(int x, int y, int w, int h, int s)
+	{
+		super(x, y, w,h);
 		speed=s;
 		try
 		{
-			image = ImageIO.read(new File("H:\\tua3122\\Unit 17\\src\\alien.jpg"));
+			URL url = getClass().getResource("/images/alien.jpg");
+			image = ImageIO.read(url);
 		}
 		catch(Exception e)
 		{
-			System.out.println("Broken");
+			//feel free to do something here
 		}
 	}
 
 	public void setSpeed(int s)
 	{
-	   speed = s;
+	   //add code
 	}
 
 	public int getSpeed()
 	{
-	   return speed;
+	   return 0;
+	}
+
+   public void move(String direction)
+	{
+	   //add code here
 	}
 
 	public void draw( Graphics window )
 	{
-		window.setColor(Color.YELLOW);
-		window.drawImage(image,getX(),getY(),80,80,null);
+   	window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
 	}
 
 	public String toString()
