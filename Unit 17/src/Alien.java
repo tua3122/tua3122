@@ -10,6 +10,7 @@ import java.awt.Image;
 import java.io.File;
 import javax.imageio.ImageIO;
 
+@SuppressWarnings("unused")
 public class Alien extends MovingThing
 {
 	private int speed;
@@ -48,11 +49,18 @@ public class Alien extends MovingThing
 	{
 	   return speed;
 	}
+	
+	public void move(String direction)
+	{
+		if(direction.equals("LEFT"))
+		      setX(getX()-getSpeed());
+		if(direction.equals("RIGHT"))
+		      setX(getX()+getSpeed());
+	}
 
 	public void draw( Graphics window )
 	{
-		window.setColor(Color.YELLOW);
-		window.drawImage(image,getX(),getY(),80,80,null);
+		window.drawImage(image,getX(),getY(),40,40,null);
 	}
 
 	public String toString()

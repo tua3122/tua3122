@@ -10,6 +10,7 @@ import java.awt.Image;
 import java.io.File;
 import javax.imageio.ImageIO;
 
+@SuppressWarnings("unused")
 public class Ammo extends MovingThing
 {
 	private int speed;
@@ -43,13 +44,16 @@ public class Ammo extends MovingThing
 
 	public void draw( Graphics window )
 	{
+		window.setColor(Color.black);
+		window.fillRect(getX(), getY(), 5, 5);
+		move("");
 		window.setColor(Color.YELLOW);
 		window.fillRect(getX(), getY(), 5, 5);
 	}
 	
 	public void move( String direction )
 	{
-		//add code to draw the ammo
+		setY(getY()+getSpeed());
 	}
 
 	public String toString()

@@ -65,6 +65,7 @@ public abstract class MovingThing implements Locatable
 		return yPos;
 	}
 	
+	
 	public void setWidth(int w)
 	{
 		width = w;
