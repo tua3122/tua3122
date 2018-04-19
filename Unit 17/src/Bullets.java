@@ -50,7 +50,12 @@ public class Bullets
 				ammo.get(i).setSpeed(0);
 			}
 			window.setColor(Color.black);
-			window.fillRect(ammo.get(i).getX(), ammo.get(i).getY(), 5, 5);
+			window.fillRect(ammo.get(i).getX(), ammo.get(i).getY(), 5, 7);
+			if(ammo.get(i).getSpeed()==0){
+				window.setColor(Color.black);
+				window.fillRect(ammo.get(i).getX(), ammo.get(i).getY(), 5, 7);
+				ammo.remove(i);
+			}
 		}
 		
 	}

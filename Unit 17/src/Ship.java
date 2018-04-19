@@ -10,11 +10,11 @@ import java.awt.Image;
 import java.io.File;
 import javax.imageio.ImageIO;
 
-@SuppressWarnings("unused")
 public class Ship extends MovingThing
 {
 	private int speed;
 	private Image image;
+	private Graphics win;
 
 	public Ship()
 	{
@@ -59,12 +59,15 @@ public class Ship extends MovingThing
 			      setX(getX()+getSpeed());
 			if(direction.equals("UP"))
 			      setY(getY()-getSpeed());
+				  win.setColor(Color.black);
+				  win.fillRect(getX()+35, getY()+90, 10, 5);
 			if(direction.equals("DOWN"))
 			      setY(getY()+getSpeed());
 	}
 
 	public void draw( Graphics window )
 	{
+		win = window;
 		window.drawImage(image,getX(),getY(),80,80,null);
 	}
 

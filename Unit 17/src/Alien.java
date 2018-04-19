@@ -52,16 +52,14 @@ public class Alien extends MovingThing
 	
 	public void move(String direction)
 	{
-		if(direction.equals("LEFT"))
-		      setX(getX()-getSpeed());
-		if(direction.equals("RIGHT"))
-		      setX(getX()+getSpeed());
+		setX(getX()+getSpeed());
 	}
 
 	public void draw( Graphics window )
 	{
 		window.drawImage(image,getX(),getY(),40,40,null);
 	}
+	
 
 	public String toString()
 	{

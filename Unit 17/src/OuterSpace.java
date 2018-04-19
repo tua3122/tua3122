@@ -16,12 +16,10 @@ import java.awt.image.BufferedImage;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+@SuppressWarnings({ "serial", "unused" })
 public class OuterSpace extends Canvas implements KeyListener, Runnable
 {
 	private Ship ship;
-	private Alien alienOne;
-	private Alien alienTwo;
-	private Ammo ammo;
 	private int timer;
 	
 
@@ -39,9 +37,6 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		keys = new boolean[5];
 		ship = new Ship(350, 450, 2);
 		horde = new AlienHorde(48);
-		//alienOne = new Alien(20, 20, 1);
-		//alienTwo = new Alien(100, 20, 1);
-		ammo = new Ammo(-10,-10,0);
 		shots = new Bullets();
 		shots.add(new Ammo(-10,-10,0));
 
@@ -58,27 +53,20 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 	public void paint( Graphics window )
 	{
-		timer++;
-		//set up the double buffering to make the game animation nice and smooth
-		Graphics2D twoDGraph = (Graphics2D)window;
-		//alienOne.draw(window);
-		//alienTwo.draw(window);
 		ship.draw(window);
 		
 		shots.cleanEmUp(window);
 		shots.moveEmAll();
 		shots.drawEmAll(window);
+		timer++;
 		
 		horde.moveEmAll();
 		horde.drawEmAll(window);
+		horde.removeDeadOnes(shots.getList());
 		
-		//take a snap shop of the current screen and same it as an image
-		//that is the exact same width and height as the current screen
 		if(back==null){
 		   back = (BufferedImage)(createImage(getWidth(),getHeight()));
 		}
-		//create a graphics reference to the back ground image
-		//we will draw all changes on the background image
 		Graphics graphToBack = back.createGraphics();
 		graphToBack.setColor(Color.BLUE);
 		graphToBack.drawString("StarFighter ", 25, 50 );
@@ -110,31 +98,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		{
 			timer = 0;
 			shots.add(new Ammo(ship.getX()+40, ship.getY(),-1));
-			//ammo = new Ammo(ship.getX()+40, ship.getY(),-1);
 		}
-		
-		/*if(alienTwo.getX()>=725||alienOne.getX()<=-15){
-			alienOne.move("LEFT");
-			alienOne.setSpeed(-alienOne.getSpeed());
-			alienTwo.move("LEFT");
-			alienTwo.setSpeed(-alienTwo.getSpeed());
-			alienOne.setY(alienOne.getY()+3);
-			alienTwo.setY(alienTwo.getY()+3);
-		}
-		else{
-			alienOne.move("RIGHT");
-			alienTwo.move("RIGHT");
-		}*/
-		//add in collision detection
-		
-		/*for(int i = 0; i < shots.getList().size(); i++){
-			if((shots.getList().get(i).getX()>=alienOne.getX()&&shots.getList().get(i).getX()<=alienOne.getX()+20)&&shots.getList().get(i).getY()==alienOne.getY()){
-				alienOne.setPos(-100, -100);
-			}
-		}*/
-
-		//causes flickering
-		//twoDGraph.drawImage(back, null, 0, 0);
 	}
 
 
@@ -193,7 +157,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 	}
 
-   public void run()
+   @SuppressWarnings("static-access")
+public void run()
    {
    	try
    	{
@@ -207,15 +172,3 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
       }
   	}
 }
-
-/*if(shots.size()>0){
-for(int i = 0; i < shots.size(); i++){
-window.setColor(Color.BLACK);
-window.fillRect(shots.get(i).getX(), shots.get(i).getY(), 5, 5);
-shots.get(i).setPos(shots.get(i).getX(), shots.get(i).getY()+shots.get(i).getSpeed());
-shots.get(i).draw(window);
-if(shots.get(i).getY()<-5){
-	shots.get(i).setSpeed(0);
-}
-}
-}*/

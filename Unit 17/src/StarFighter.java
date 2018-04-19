@@ -7,6 +7,7 @@
 import javax.swing.JFrame;
 import java.awt.Component;
 
+@SuppressWarnings("serial")
 public class StarFighter extends JFrame
 {
 	private static final int WIDTH = 800;
