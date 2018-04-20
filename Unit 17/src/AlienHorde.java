@@ -91,6 +91,10 @@ public class AlienHorde
 			}
 		}
 	}
+	
+	public int getSize(){
+		return aliens.size();
+	}
 
 	public String toString()
 	{

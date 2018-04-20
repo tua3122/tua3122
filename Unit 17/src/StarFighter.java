@@ -28,6 +28,7 @@ public class StarFighter extends JFrame
 
 	public static void main( String args[] )
 	{
+		@SuppressWarnings("unused")
 		StarFighter run = new StarFighter();
 	}
 }

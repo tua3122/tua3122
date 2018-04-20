@@ -15,6 +15,7 @@ public class Ship extends MovingThing
 	private int speed;
 	private Image image;
 	private Graphics win;
+	private boolean doDraw;
 
 	public Ship()
 	{
@@ -30,6 +31,7 @@ public class Ship extends MovingThing
 	{
 		super(x, y);
 		speed=s;
+		doDraw=true;
 		try
 		{
 			image = ImageIO.read(new File("H:\\tua3122\\Unit 17\\src\\ship.jpg"));
@@ -51,6 +53,7 @@ public class Ship extends MovingThing
 	   return speed;
 	}
 	
+	
 	public void move(String direction)
 	{
 		if(direction.equals("LEFT"))
@@ -68,7 +71,23 @@ public class Ship extends MovingThing
 	public void draw( Graphics window )
 	{
 		win = window;
-		window.drawImage(image,getX(),getY(),80,80,null);
+		if(doDraw){
+			window.drawImage(image,getX(),getY(),80,80,null);
+		}
+		else{
+			setSpeed(0);
+			window.setColor(Color.BLACK);
+			window.fillRect(getX(), getY(), getWidth(), getHeight());
+		}
+		
+	}
+	
+	public void setDraw(boolean b){
+		doDraw=b;
+	}
+	
+	public boolean getDraw(){
+		return doDraw;
 	}
 
 	public String toString()
