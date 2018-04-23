@@ -21,7 +21,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 {
 	private Ship ship;
 	private int timer;
-	private BadAlien alien;
+	private BadAlien alien, alien2;
 
 	private AlienHorde horde;
 	private Bullets shots;	
@@ -39,7 +39,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		horde = new AlienHorde(64);
 		shots = new Bullets();
 		shots.add(new Ammo(-10,-10,0));
-		alien = new BadAlien(100,100);
+		alien = new BadAlien(100,100,21);
+		alien2 = new BadAlien(100,100,13);
 
 		this.addKeyListener(this);
 		new Thread(this).start();
@@ -67,6 +68,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		
 		alien.move("");
 		alien.draw(window);
+		alien2.move("");
+		alien2.draw(window);
 		
 		if(back==null){
 		   back = (BufferedImage)(createImage(getWidth(),getHeight()));
@@ -108,9 +111,15 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 			if((ship.getY()+80>=alien.getY()-5)&&(ship.getY()<=alien.getY()+alien.getHeight())){
 				ship.setDraw(false);
 			}
+		} 
+		if((ship.getX()+ship.getWidth()>=alien2.getX())&&(ship.getX()<=alien2.getX()+alien2.getWidth())){
+			if((ship.getY()+80>=alien2 .getY()-5)&&(ship.getY()<=alien2.getY()+alien2.getHeight())){
+				ship.setDraw(false);
+			}
 		}
 		if(horde.getSize()==0){
 			alien.setDraw(false);
+			alien2.setDraw(false);
 		}
 	}
 

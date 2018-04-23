@@ -27,31 +27,31 @@ public class BadAlien extends MovingThing
 	public BadAlien(int x, int y)
 	{
 		this(x,y,0);
-		xSpeed = 3;
-		ySpeed = 1;
+		setSpeed(31);
 		doDraw = true;
 	}
 
 	public BadAlien(int x, int y, int s)
 	{
 		super(x, y);
-		speed=s;
-		xSpeed = 3;
-		ySpeed = 1;
+		setSpeed(s);
 		doDraw = true;
 		try
 		{
-			image = ImageIO.read(new File("H:\\tua3122\\Unit 17\\src\\alien.jpg"));
+			image = ImageIO.read(new File("H:\\tua3122\\Unit 17\\src\\badalien.jpg"));
 		}
 		catch(Exception e)
 		{
 			System.out.println("Broken");
 		}
 	}
+	
+	
 
 	public void setSpeed(int s)
 	{
-	   speed = s;
+	   setXSpeed(s%10);
+	   setYSpeed(s/10);
 	}
 
 	public int getSpeed()
