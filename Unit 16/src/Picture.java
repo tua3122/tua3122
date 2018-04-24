@@ -26,7 +26,9 @@ public class Picture extends SimplePicture
     /* not needed but use it to show students the implicit call to super()
      * child constructors always call a parent constructor 
      */
+	  
     super();  
+    System.out.println("Allen Tu, Period 1, 4/24/2018, CA-SU-F101-12");
   }
   
   /**
@@ -37,6 +39,8 @@ public class Picture extends SimplePicture
   {
     // let the parent class handle this fileName
     super(fileName);
+    System.out.println("Allen Tu, Period 1, 4/24/2018, CA-SU-F101-12");
+
   }
   
   /**
@@ -448,6 +452,35 @@ public class Picture extends SimplePicture
 	        else
 	        	pixels[row][col].setColor(Color.WHITE);
 	      }
+	  }
+  }
+  
+  public void sharpen(int x, int y, int w, int h){
+	  Pixel[][] pixels = this.getPixels2D();
+	  for(int row = x; row < x+h; row++){
+		  for(int col = y; col < y+w; col++){
+			  pixels[row][col].setRed(pixels[row][col].getRed()+(pixels[row][col].getRed()-pixels[row-1][col-1].getRed())/2);
+			  pixels[row][col].setBlue(pixels[row][col].getBlue()+(pixels[row][col].getBlue()-pixels[row-1][col-1].getBlue())/2);
+			  pixels[row][col].setGreen(pixels[row][col].getGreen()+(pixels[row][col].getGreen()-pixels[row-1][col-1].getGreen())/2);
+			  if(pixels[row][col].getRed()>255){
+				  pixels[row][col].setRed(255);
+			  }
+			  if(pixels[row][col].getBlue()>255){
+				  pixels[row][col].setBlue(255);
+			  }
+			  if(pixels[row][col].getGreen()>255){
+				  pixels[row][col].setGreen(255);
+			  }
+			  if(pixels[row][col].getRed()<0){
+				  pixels[row][col].setRed(0);
+			  }
+			  if(pixels[row][col].getBlue()<0){
+				  pixels[row][col].setBlue(0);
+			  }
+			  if(pixels[row][col].getGreen()<0){
+				  pixels[row][col].setGreen(0);
+			  }
+		  }
 	  }
   }
   

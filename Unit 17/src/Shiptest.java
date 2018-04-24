@@ -1,16 +1,13 @@
-//© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  -
-
-import java.io.*;
-import java.util.*;
-import static java.lang.System.*;
-
-@SuppressWarnings("unused")
+/**
+ * Method that tests the functionality of the Ship class.
+ * @author tua3122
+ */
 public class Shiptest
 {
+	/**
+	 * Initiates ships and tests their functionality.
+	 * @param args
+	 */
     public static void main( String args[] )
     {
         MovingThing test = new Ship();

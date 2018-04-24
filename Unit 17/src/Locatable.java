@@ -1,9 +1,11 @@
-//© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  -
-
+/**
+ * Interface to describe a locatable object. A locatable object
+ * can have a x-coordinate and a y-coordinate. The position and
+ * the individual coordinates can be set. The individual coordinates
+ * can be returned.
+ *  
+ * @author tua3122
+ */
 public interface Locatable
 {
     public void setPos( int x, int y);

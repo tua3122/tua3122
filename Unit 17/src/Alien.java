@@ -4,7 +4,7 @@ import java.io.File;
 import javax.imageio.ImageIO;
 
 /**
- * A class that represents the aliens. This class inherits from 
+ * A class that represents an alien. This class inherits from 
  * MovingThing and allows the user to add functionality to 
  * the Alien class.
  * 
