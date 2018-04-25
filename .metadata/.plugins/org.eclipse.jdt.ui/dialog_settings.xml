@@ -1,5 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="javadoc">
+		<item value="public" key="access"/>
+		<item value="false" key="noindex"/>
+		<item value="H:\tua3122\Unit 17\javadoc.xml" key="antpath"/>
+		<item value="false" key="nodeprecatedlist"/>
+		<item value="true" key="use"/>
+		<item value="true" key="author"/>
+		<item value="false" key="nodeprecated"/>
+		<item value="false" key="nonavbar"/>
+		<item value="" key="docletpath"/>
+		<item value="C:\Users\Public\Documents\Eclipse Java\eclipsec.exe" key="javadoc_command_history"/>
+		<item value="1.8" key="source"/>
+		<item value="true" key="version"/>
+		<item value="" key="docletname"/>
+		<item value="true" key="splitindex"/>
+		<item value="true" key="fromStandard"/>
+		<item value="false" key="notree"/>
+		<item value="H:\tua3122\Unit 17\doc" key="destdir"/>
+		<item value="false" key="openinbrowser"/>
+		<section name="projects">
+			<section name="Unit 11-gradebookLists">
+				<item value="H:\tua3122\Unit 11-gradebookLists\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 11-gradebookLists\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 17">
+				<item value="H:\tua3122\Unit 17\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 17\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 16">
+				<item value="H:\tua3122\Unit 16\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 16\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 15">
+				<item value="H:\tua3122\Unit 15\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 15\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Assessment">
+				<item value="H:\tua3122\Assessment\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Assessment\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 9-elevensAct5Buggy2">
+				<item value="H:\tua3122\Unit 9-elevensAct5Buggy2\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 9-elevensAct5Buggy2\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 9-elevensAct5Buggy1">
+				<item value="H:\tua3122\Unit 9-elevensAct5Buggy1\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 9-elevensAct5Buggy1\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 9-elevensAct5Buggy4">
+				<item value="H:\tua3122\Unit 9-elevensAct5Buggy4\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 9-elevensAct5Buggy4\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 9-elevensAct5Buggy3">
+				<item value="H:\tua3122\Unit 9-elevensAct5Buggy3\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 9-elevensAct5Buggy3\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 7">
+				<item value="H:\tua3122\Unit 7\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 7\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 6">
+				<item value="H:\tua3122\Unit 6\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 6\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 5">
+				<item value="H:\tua3122\Unit 5\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 5\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 4">
+				<item value="H:\tua3122\Unit 4\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 4\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 9">
+				<item value="H:\tua3122\Unit 9\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 9\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 8">
+				<item value="H:\tua3122\Unit 8\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 8\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 10">
+				<item value="H:\tua3122\Unit 10\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 10\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 10-elevens">
+				<item value="H:\tua3122\Unit 10-elevens\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 10-elevens\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 3">
+				<item value="H:\tua3122\Unit 3\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 3\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 14">
+				<item value="H:\tua3122\Unit 14\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 14\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 2">
+				<item value="H:\tua3122\Unit 2\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 2\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 13">
+				<item value="H:\tua3122\Unit 13\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 13\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 1">
+				<item value="H:\tua3122\Unit 1\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 1\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 12">
+				<item value="H:\tua3122\Unit 12\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 12\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 0">
+				<item value="H:\tua3122\Unit 0\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 0\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Unit 11">
+				<item value="H:\tua3122\Unit 11\javadoc.xml" key="antpath"/>
+				<item value="H:\tua3122\Unit 11\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+		</section>
+	</section>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item value="2" key="layout"/>
 		<item value="true" key="group_libraries"/>
@@ -18,6 +165,13 @@
 	</section>
 	<section name="BuildPathsPropertyPage">
 		<item value="2" key="pageIndex"/>
+	</section>
+	<section name="JavadocWizardDialog">
+		<item value="616" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="567" key="DIALOG_HEIGHT"/>
+		<item value="660" key="DIALOG_X_ORIGIN"/>
+		<item value="150" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="completion_proposal_size">
 	</section>

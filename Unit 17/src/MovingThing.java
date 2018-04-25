@@ -1,5 +1,14 @@
 import java.awt.Graphics;
 
+/**
+ * Interface to describe a moveable object that implements locatable. A moveable object
+ * can have a x-coordinate and a y-coordinate. The position and
+ * the individual coordinates can be set. The individual coordinates
+ * can be returned. The object can have a width and a height which can 
+ * also be set and returned. 
+ *  
+ * @author tua3122
+ */
 public abstract class MovingThing implements Locatable
 {
 	private int xPos;

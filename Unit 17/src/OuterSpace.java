@@ -10,6 +10,13 @@ import java.awt.image.BufferedImage;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * The class that runs the other classes to let them
+ * interact and create the game. User input is taken 
+ * and interpreted.
+ * 
+ * @author tua3122
+ */
 @SuppressWarnings({ "serial", "unused" })
 public class OuterSpace extends Canvas implements KeyListener, Runnable
 {
@@ -23,6 +30,9 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private boolean[] keys;
 	private BufferedImage back;
 
+	/**
+	 * Constructor that initiates the objects and variables and sets them as visible.
+	 */
 	public OuterSpace()
 	{
 		timer = 0;
@@ -42,11 +52,18 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		setVisible(true);
 	}
 
+	/**
+	 * Method that calls the paint method.
+	 */
    public void update(Graphics window)
    {
 	   paint(window);
    }
 
+   /**
+    * Method that moves and draws the objects, updates the timer, and refreshes the window.
+    * Detects user input and detects if the bad aliens have killed the ship.
+    */
 	public void paint( Graphics window )
 	{
 		ship.draw(window);
@@ -118,6 +135,9 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	}
 
 
+	/**
+	 * Method that detects when keys have been pressed and repaints the window.
+	 */
 	public void keyPressed(KeyEvent e)
 	{
 		if (e.getKeyCode() == KeyEvent.VK_LEFT)
@@ -143,6 +163,9 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		repaint();
 	}
 
+	/**
+	 * Method that detects when keys are released and repaints the window.
+	 */
 	public void keyReleased(KeyEvent e)
 	{
 		if (e.getKeyCode() == KeyEvent.VK_LEFT)
@@ -168,11 +191,17 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		repaint();
 	}
 
+	/**
+	 * Method that would detect if keys are typed.
+	 */
 	public void keyTyped(KeyEvent e)
 	{
 
 	}
 
+	/**
+	 * Method that runs the class and continually repaints the window.
+	 */
    @SuppressWarnings("static-access")
 public void run()
    {
