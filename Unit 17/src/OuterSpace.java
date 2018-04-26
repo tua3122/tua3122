@@ -92,22 +92,22 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		graphToBack.fillRect(0,0,800,600);
 		
 
-		if(keys[0] == true)
+		if(keys[0] == true && ship.getX()>=-20)
 		{
 			ship.move("LEFT");
 		}
 		
-		if(keys[1] == true)
+		if(keys[1] == true && ship.getX()<=725)
 		{
 			ship.move("RIGHT");
 		}
 		
-		if(keys[2] == true)
+		if(keys[2] == true && ship.getY()>=0)
 		{
 			ship.move("UP");
 		}
 		
-		if(keys[3] == true)
+		if(keys[3] == true && ship.getY()<=480)
 		{
 			ship.move("DOWN");
 		}
