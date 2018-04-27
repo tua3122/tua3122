@@ -40,7 +40,10 @@ public class Bullets
 	public void drawEmAll( Graphics window )
 	{
 		for(int i = 0; i < ammo.size(); i++){
-			window.setColor(Color.YELLOW);
+			int r = (int)(Math.random()*255);
+	 		int g = (int)(Math.random()*255);
+	 		int b = (int)(Math.random()*255);
+	 		window.setColor(new Color(r,g,b));
 			window.fillRect(ammo.get(i).getX(), ammo.get(i).getY(), 5, 5);
 		}
 	}

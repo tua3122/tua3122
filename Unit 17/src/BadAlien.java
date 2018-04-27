@@ -40,7 +40,7 @@ public class BadAlien extends MovingThing
 		doDraw = true;
 	}
 
-	/**
+	/**  
 	 * Constructor that creates the alien and sets its appearance, position, and speed.
 	 * @param x the initial x-coordinate of the alien.
 	 * @param y the initial y-coordinate of the alien.

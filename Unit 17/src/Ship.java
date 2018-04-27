@@ -88,7 +88,7 @@ public class Ship extends MovingThing
 			if(direction.equals("UP"))
 			      setY(getY()-getSpeed());
 				  win.setColor(Color.black);
-				  win.fillRect(getX()+35, getY()+90, 10, 5);
+				  win.fillRect(getX(), getY()+90, 100, 10);
 			if(direction.equals("DOWN"))
 			      setY(getY()+getSpeed());
 	}
