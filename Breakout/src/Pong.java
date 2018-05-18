@@ -25,16 +25,17 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	//private SpeedUpBall ball;
 	private Paddle paddle;
 	private BlockHorde blocks;
+	private boolean up;
 	private boolean[] keys;
 	private BufferedImage back;
 	int size, score, tempscore, level;
 
 	public Pong()
 	{		
-		ball = new Ball(175, 200, 10, 10, Color.BLUE);
+		ball = new Ball(175, 200, 10, 10, Color.BLUE, 3, 1);
 		paddle = new Paddle(400, 250, 40, 40, Color.ORANGE, 5);
 		blocks = new BlockHorde();
-		keys = new boolean[4];
+		keys = new boolean[5];
 		size = blocks.getSize();
     	setBackground(Color.WHITE);
 		setVisible(true);
@@ -48,15 +49,16 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	   paint(window);
 	   window.setColor(Color.WHITE);
 	   if(tempscore!=score){
-		   window.fillRect(370, 90, 50, 20);
+		   window.fillRect(370, 90, 50, 40);
 		   window.setColor(Color.RED);
 		   window.drawString("Score:" + score, 370, 100);
 		   window.drawString("Level: " + level, 370, 115);
 		   tempscore=score;
 	   }
-	   if(score==size && level <2){
+	   if(score==size){
 		   blocks = new BlockHorde();
-		   level = 2;
+		   up = true;
+		   level++;
 	   }
 	   
    }
@@ -68,6 +70,18 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	   int x = blocks.removeDeadOnes(ball);
 	   ball.moveAndDraw(window);
 		paddle.draw(window);
+		if(up){
+			up=false;
+			if(ball.getXSpeed()==3){
+				ball.setXSpeed(1);
+				ball.setYSpeed(3);
+			}
+			else if(ball.getXSpeed()==1){
+				ball.setXSpeed(3);
+				ball.setYSpeed(1);
+			}
+			
+		}
 		if(ball.didCollideLeft(window)||ball.didCollideRight(window))
 		{
 			ball.setXSpeed(-ball.getXSpeed());
@@ -85,6 +99,11 @@ public class Pong extends Canvas implements KeyListener, Runnable
 			ball.setXSpeed(-ball.getXSpeed());
 		}
 		
+		if(ball.getXSpeed()==0||ball.getYSpeed()==0){
+			ball.setYSpeed(1);
+			ball.setXSpeed(1);
+			ball.setPos(100, 200);
+		}
 		if(x==1){
 			ball.setYSpeed(-ball.getYSpeed());
 		}
@@ -108,6 +127,11 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		{
 			paddle.moveRightAndDraw(window);
 		}
+		if(keys[4] == true)
+		{
+			blocks.removeS();
+			up = true;
+		}
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
 
@@ -119,6 +143,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 			case 'S' : keys[1]=true; break;
 			case 'A' : keys[2]=true; break;
 			case 'D' : keys[3]=true; break;
+			case 'R' : keys[4]=true; break;
 		}
 	}
 
@@ -130,6 +155,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 			case 'S' : keys[1]=false; break;
 			case 'A' : keys[2]=false; break;
 			case 'D' : keys[3]=false; break;
+			case 'R' : keys[4]=false; break;
 		}
 	}
 

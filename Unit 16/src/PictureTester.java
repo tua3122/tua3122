@@ -149,6 +149,15 @@ public class PictureTester
 	  redMoto.explore();
   }
   
+  public static void testEncode(Picture messagePict){
+	  Picture redMoto = new Picture("redMotorcycle.jpg");
+	  //redMoto.explore();
+	  redMoto.encode(messagePict);
+	  redMoto.explore();
+	  redMoto.decode();
+	  redMoto.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -156,10 +165,11 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+	
+    /*testZeroBlue();
     testKeepOnlyBlue();
-    //testKeepOnlyRed();
-    //testKeepOnlyGreen();
+    testKeepOnlyRed();
+    testKeepOnlyGreen();
     testNegate();
     testGrayscale();
     testFixUnderwater();
@@ -173,16 +183,17 @@ public class PictureTester
     testMirrorGull();
     testMirrorDiagonal();
     testCollage();
-	testMyCollage();
+	testMyCollage();*/
     //testCopy();
-    testEdgeDetection();
-    testEdgeDetection2();
+    //testEdgeDetection();
+    //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
-    testSharpen(50,50,500,400);
+    //testSharpen(50,50,500,400);
+	  testEncode(new Picture("crybytes-apple_icon.jpg"));
   }
 }

@@ -45,7 +45,7 @@ public class Paddle extends Block
 
    public void moveUpAndDraw(Graphics window)
    {
-	   if(getY()<=150){
+	   if(getY()<=130){
 		   
 	   }
 	   else{
@@ -57,7 +57,7 @@ public class Paddle extends Block
 
    public void moveDownAndDraw(Graphics window)
    {
-	   if(getY()>=300){
+	   if(getY()>=350){
 		   
 	   }
 	   else{
@@ -69,7 +69,7 @@ public class Paddle extends Block
    
    public void moveLeftAndDraw(Graphics window)
    {
-	   if(getX()<=250){
+	   if(getX()<=200){
 		   
 	   }
 	   else{
@@ -82,7 +82,7 @@ public class Paddle extends Block
    
    public void moveRightAndDraw(Graphics window)
    {
-	   if(getX()>=500){
+	   if(getX()>=550){
 		   
 	   }
 	   else{

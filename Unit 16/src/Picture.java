@@ -484,11 +484,160 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  /** Hide a black and white message in the current
+  * picture by changing the red to even and then
+  * setting it to odd if the message pixel is black
+  * @param messagePict the picture with a message
+  */
+  public void encode(Picture messagePict)
+  {
+	  Pixel[][] messagePixels = messagePict.getPixels2D();
+	  Pixel[][] currPixels = this.getPixels2D();
+	  Pixel currPixel = null;
+	  Pixel messagePixel = null;
+	  for (int row = 0; row < this.getHeight(); row++){
+		  for (int col = 0; col < this.getWidth(); col++){
+			  currPixel = currPixels[row][col];
+			  messagePixel = messagePixels[row][col];
+			  while(average(currPixel)%2==0){
+				  currPixel.setGreen(currPixel.getGreen()-1);
+				  currPixel.setRed(currPixel.getRed()-1);
+				  currPixel.setBlue(currPixel.getBlue()-1);
+			 }
+			 if (messagePixel.colorDistance(Color.BLACK) < 50){
+				 while(average(currPixel)%2==1){
+					 currPixel.setGreen(currPixel.getGreen()-1);
+					 currPixel.setRed(currPixel.getRed()-1);
+					 currPixel.setBlue(currPixel.getBlue()-1);
+				 }	  
+			 }
+		  }
+	  }
+  }
+  
+  public void encode(String phrase)
+  {
+	  //Pixel[][] messagePixels = messagePict.getPixels2D();
+	  Pixel[][] currPixels = this.getPixels2D();
+	  int height = this.getHeight();
+	  int width = this.getWidth();
+	  Pixel tempPixel=null;
+	  Pixel currPixel = null;
+	  Pixel messagePixel = null;
+	  
+	  int count = 0;
+	  int cha;
+	  int r = 0;
+	  int c = 0;
+	  
+	  for (int row = 0; row < this.getHeight(); row++){
+		  for (int col = 0; col < this.getWidth(); col++){
+			  currPixel = currPixels[row][col];
+			  while(average(currPixel)%2==0){
+				  currPixel.setGreen(currPixel.getGreen()-1);
+				  currPixel.setRed(currPixel.getRed()-1);
+				  currPixel.setBlue(currPixel.getBlue()-1);
+			 }
+		  }
+	  }
+	  for(int i = 0; i < phrase.length(); i++){
+			  c = c + (int) phrase.charAt(count);
+			  currPixel=currPixels[r][c];
+			  while(average(currPixel)%2==1){
+					 currPixel.setGreen(currPixel.getGreen()-1);
+					 currPixel.setRed(currPixel.getRed()-1);
+					 currPixel.setBlue(currPixel.getBlue()-1);
+			  }	  
+			  count++;
+	  }
+  }
+  
+  public Picture decode()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  int height = this.getHeight();
+	  int width = this.getWidth();
+	  Pixel currPixel = null;
+	  Pixel messagePixel = null;
+	  Picture messagePicture = new Picture(height,width);
+	  Pixel[][] messagePixels = messagePicture.getPixels2D();
+	  for (int row = 0; row < this.getHeight(); row++)
+	  {
+		  for (int col = 0; col < this.getWidth(); col++){
+			  currPixel = pixels[row][col];
+			  messagePixel = messagePixels[row][col]; 
+			  if(average(currPixel)%2==1){
+				  currPixel.setColor(Color.WHITE);
+			  }
+			  else{
+				  currPixel.setColor(Color.BLACK);
+			  }
+		  }
+	  }
+	  return messagePicture;
+  }
+  
+  public String decode2()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  int height = this.getHeight();
+	  int width = this.getWidth();
+	  Pixel currPixel = null;
+	  Pixel messagePixel = null;
+	  Picture messagePicture = new Picture(height,width);
+	  Pixel[][] messagePixels = messagePicture.getPixels2D();
+	  
+	  ArrayList<Character> chars = new ArrayList<Character>();
+	  ArrayList<Integer> d = new ArrayList<Integer>();
+	  int dist = 0;
+	  int count = 0;
+	  for (int row = 0; row < this.getHeight(); row++)
+	  {
+		  for (int col = 0; col < this.getWidth(); col++){
+			  currPixel = pixels[row][col];
+			  
+			  if(average(currPixel)%2==0){
+				  //chars.add((char) (col - dist));
+				  d.add(col);
+				  count++;
+			  }
+			  
+			  
+			  //dist = col;
+		  }
+	  }
+	  
+	  int a = d.get(0);
+	  char b = (char) a;
+	  chars.add(b);
+	  for(int i = 1; i < d.size(); i++){
+		  dist = (d.get(i)-d.get(i-1));
+		  chars.add((char)dist);
+	  }
+	  
+	  String ret = "";
+	  for(int i = 0; i < chars.size(); i++){
+		  ret += chars.get(i);
+	  }
+	  return ret;
+  }
+  
+  public int average(Pixel currPixel){
+	  return (currPixel.getRed()+currPixel.getBlue()+currPixel.getGreen())/3;
+  }
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
   public static void main(String[] args) 
   {
+	  Picture redMoto = new Picture("redMotorcycle.jpg");
+	  redMoto.explore();
+	  //redMoto.encode(new Picture("crybytes-apple_icon.jpg"));
+	  redMoto.encode("Hello");
+	  redMoto.explore();
+	  redMoto.decode();
+	  System.out.print(redMoto.decode2());
+	  redMoto.explore();
   }
   
 } // this } is the end of class Picture, put all new methods before this

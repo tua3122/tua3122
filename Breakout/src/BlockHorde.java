@@ -65,6 +65,14 @@ public class BlockHorde
 		return x;
 	}
 	
+	public void removeS(){
+		for(int i = 0; i < blocks.size(); i++){
+			win.setColor(Color.WHITE);
+			win.fillRect(blocks.get(i).getX(), blocks.get(i).getY(), blocks.get(i).getWidth(), blocks.get(i).getHeight());
+			blocks.remove(i);
+		}
+	}
+	
 	public int getSize(){
 		return blocks.size();
 	}
