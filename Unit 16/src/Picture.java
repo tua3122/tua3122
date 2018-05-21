@@ -636,7 +636,7 @@ public class Picture extends SimplePicture
 	  redMoto.encode("Hello");
 	  redMoto.explore();
 	  redMoto.decode();
-	  System.out.print(redMoto.decode2());
+	  redMoto.addMessage(redMoto.decode2(), 100, 100);
 	  redMoto.explore();
   }
   
